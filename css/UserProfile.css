@@ -1,14 +1,10 @@
 body{
-    margin-top:20px;
     color: #1a202c;
     text-align: left;
-    background-color: #e2e8f0;    
+    background: #232733;   
 }
 .main-body {
     padding: 15px;
-}
-.card {
-    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
 }
 
 .card {
@@ -17,10 +13,10 @@ body{
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: #fff;
+    background-color: #3b3e4f;
     background-clip: border-box;
-    border: 0 solid rgba(0,0,0,.125);
-    border-radius: .25rem;
+    color: #fff;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
 }
 
 .card-body {
@@ -51,3 +47,12 @@ body{
 .shadow-none {
     box-shadow: none!important;
 }
+
+.btn{
+    color: white;
+    border: 1px solid #fff;
+  }
+
+  .progress-bar{
+    background-color: #59b2cc;
+  }
