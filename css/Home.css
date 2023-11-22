@@ -1,9 +1,9 @@
 .grey-bg {
-  background-color: #f5f7fa;
+  background-color: rgba(16,19,34,255);
 }
 
 body {
-  background: #fafafa;
+  background: rgba(16,19,34,255);
 }
 .order-card {
   color: #fff;

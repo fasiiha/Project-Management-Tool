@@ -16,15 +16,18 @@
   display: flex-column;
   /* margin: -.5%; */
   overflow-y: auto;
-  background: #37474f;
+  background: rgba(16,19,34,255);
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  border-color: #455a64; 
+  border-width: thin; 
+  border-style: solid;
 }
 
 #sidebar header {
-  background-color: #263238;
+  background-color: #000;
   font-size: 20px;
   line-height: 52px;
   text-align: center;
@@ -48,7 +51,7 @@
 #sidebar .nav a {
   display: flex;
   background: none;
-  border-bottom: 1px solid #455a64;
+  /* border-bottom: 1px solid #455a64; */
   color: #cfd8dc;
   font-size: 14px;
   padding: 16px 24px;

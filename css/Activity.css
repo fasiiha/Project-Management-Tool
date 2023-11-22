@@ -1,5 +1,9 @@
 body{
-  background:#ebeef0;
+  background: #232733;
+}
+
+p{
+  color: #fff;
 }
 
 .img-sm {
@@ -101,4 +105,5 @@ body{
 
 .btn-link{
   text-decoration: none;
+  color: #59b2cc;
 }
