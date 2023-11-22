@@ -1,0 +1,13 @@
+body {
+    background:  #232733;
+    color: white;
+  }
+
+  .section-intro{
+    font-size: 14px;
+  }
+
+  .btn{
+    color: white;
+    border: 1px solid #fff;
+  }
