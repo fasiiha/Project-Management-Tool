@@ -1,8 +1,5 @@
 **Project Management Tool Documentation**
 
-*Version 1.0 | Date: [Current Date]*
-
----
 
 ### Table of Contents
 
