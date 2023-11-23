@@ -203,5 +203,3 @@ Links to additional resources, tutorials, or external documentation.
 Details on how to contact the support team for assistance.
 
 ---
-
-*This document is subject to updates. Please refer to the latest version for the most accurate information.*
