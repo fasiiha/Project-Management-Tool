@@ -37,7 +37,7 @@
   <?php
     $name = $_POST['username'];
     $pwd = $_POST['password'];
-    echo $name." ".$pwd;
+      echo $name." ".$pwd;
     ?>
 
     <div id="sidebar">
