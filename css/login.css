@@ -216,7 +216,7 @@ button {
     transform: translateY(-72px);
 }
 
-/* .cont.s--signup .img__btn span.m--in {
+.cont.s--signup .img__btn span.m--in {
     -webkit-transform: translateY(0);
     transform: translateY(0);
 }
@@ -224,7 +224,7 @@ button {
 .cont.s--signup .img__btn span.m--up {
     -webkit-transform: translateY(72px);
     transform: translateY(72px);
-} */
+}
 
 h2 {
     width: 100%;
