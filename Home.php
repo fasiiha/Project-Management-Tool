@@ -35,10 +35,15 @@
 
   <body style="flex-wrap: wrap">
    <?php
-    // $name = $_POST['email'];
-    // $pwd = $_POST['password'];
-    // echo $name." ".$pwd;
     
+      session_start();
+
+      if(isset($_SESSION['email'])) {
+        header("Location: login.php");
+        exit();
+      }
+
+      // if(isset($_COOKIE))
     ?> 
 
 
