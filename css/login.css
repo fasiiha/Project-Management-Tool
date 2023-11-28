@@ -298,3 +298,10 @@ input {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
 }
+
+p {
+    font-size: 80%;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    color: #232733;
+    position: relative;
+}

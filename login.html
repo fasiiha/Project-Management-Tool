@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
     <link rel="stylesheet" href="./css/Sidebar.css" />
-    <!-- <link rel="stylesheet" href="./css/calendar.css" /> -->
     <link rel="stylesheet" href="./css/login.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css"
@@ -19,70 +18,97 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
 </head>
 
-<body >
+<body>
     <header>
-        <div  id="header">
+        <div id="header">
             <h4 class="text-uppercase" style="color: white;">Project Management</h4>
         </div>
     </header>
 
     <main>
 
-    <div class="cont">
-        <div class="form sign-in">
-            <h2>Login</h2>
-            <label>
-                <span>Email</span>
-                <input type="email" />
-            </label>
-            <label>
-                <span>Password</span>
-                <input type="password" />
-            </label>
-            <button type="button" class="submit">Sign In</button>
-         
-        </div>
-        <div class="sub-cont">
-            <div class="img">
-                <div class="img__text m--up">
-                 
-                    <h3>Don't have an account? Please Sign up!<h3>
-                </div>
-                <div class="img__text m--in">
-                
-                    <h3>If you already has an account, just sign in.<h3>
-                </div>
-                <div class="img__btn">
-                    <span class="m--up">Sign Up</span>
-                    <span class="m--in">Sign In</span>
-                </div>
-            </div>
-            <div class="form sign-up">
-                <h2>Create your Account</h2>
-                <label>
-                    <span>Name</span>
-                    <input type="text" />
-                </label>
+        <div class="cont">
+            <div class="form sign-in" style="display: flex; flex-direction: column; align-items: center;">
+                <h2>Login</h2>
                 <label>
                     <span>Email</span>
-                    <input type="email" />
+                    <input type="email" name="email" onkeyup="validate(this)">
                 </label>
                 <label>
                     <span>Password</span>
-                    <input type="password" />
+                    <input type="password" onkeyup="validate(this)">
                 </label>
-                <button type="button" class="submit">Sign Up</button>
-                
+                <p id="email">Enter a valid address, e.g. me@mydomain.com</p>
+                <a href="Home.html" target="_top"><button type="button" class="submit">Sign In</button></a>
+
+            </div>
+            <div class="sub-cont">
+                <div class="img">
+                    <div class="img__text m--up">
+                        <h3>Don't have an account? Please Sign up!<h3>
+                    </div>
+                    <div class="img__text m--in">
+
+                        <h3>If you already has an account, just sign in.<h3>
+                    </div>
+                    <div class="img__btn">
+                        <span class="m--up">Sign Up</span>
+                        <span class="m--in">Sign In</span>
+                    </div>
+                </div>
+                <div class="form sign-up" style="display: flex; flex-direction: column; align-items: center;">
+                    <h2>Create your Account</h2>
+                        <div>
+                            <label>
+                                <span>Name</span>
+                                <input type="text" name="name" onkeyup="validate(this)">
+                            </label>
+                        </div>
+                        <p id="name">Name must be alphabets and contain 5-12 characters</p>
+                        <div>
+                            <label>
+                                <span>Email</span>
+                                <input type="email" name="email2" onkeyup="validate(this)">
+                            </label>
+                        </div>
+                        <p id="email2">Email must be a valid address, e.g. me@mydomain.com</p>
+                        <div>
+                            <label>
+                                <span>Password</span>
+                                <input type="password" name="password" onkeyup="validate(this)">
+                            </label>
+                        </div>
+                        <p id="password">Password must be alphanumeric (@,- and _ also included) and be 8-20 characters</p>
+                    
+                <a href="Home.html" target="_top"><button type="button" class="submit">Sign Up</button></a>
+                </div>
             </div>
         </div>
-    </div>
 
-    <script>
-        document.querySelector('.img__btn').addEventListener('click', function() {
-            document.querySelector('.cont').classList.toggle('s--signup');
-        });
-    </script>
-</main>
+        
+        <script>
+            document.querySelector('.img__btn').addEventListener('click', function () {
+                document.querySelector('.cont').classList.toggle('s--signup');
+            });
+
+            const patterns = {
+                name: /^[a-z]{5,12}$/i,
+                password: /^[a-z0-9-]{8,20}$/,
+                email: /^([a-z0-9\.-]+)@([a-z0-0-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/,
+                email2: /^([a-z0-9\.-]+)@([a-z0-0-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/
+            }
+            function validate(field) {
+                if(patterns[field.name].test(field.value) || field.value == "") {
+                    field.className = 'valid';
+                    document.getElementById(field.name).style.color = "#232733";
+                }
+                else {
+                    field.className = 'invalid';
+                    document.getElementById(field.name).style.color = "#cfcfcf";
+                }
+            }
+        </script>
+    </main>
 </body>
 
 </html>
