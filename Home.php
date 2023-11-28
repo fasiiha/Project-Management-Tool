@@ -34,6 +34,12 @@
 
 
   <body style="flex-wrap: wrap">
+  <?php
+    $name = $_POST['username'];
+    $pwd = $_POST['password'];
+    echo $name." ".$pwd;
+    ?>
+
     <div id="sidebar">
       <header>
         <a href="#">Project</a>
