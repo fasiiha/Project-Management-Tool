@@ -34,11 +34,14 @@
 
 
   <body style="flex-wrap: wrap">
-  <?php
-    $name = $_POST['username'];
-    $pwd = $_POST['password'];
-    echo $name." ".$pwd;
-    ?>
+   <?php
+    // $name = $_POST['email'];
+    // $pwd = $_POST['password'];
+    // echo $name." ".$pwd;
+    
+    ?> 
+
+
 
     <div id="sidebar">
       <header>
