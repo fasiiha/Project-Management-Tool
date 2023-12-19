@@ -1,3 +1,15 @@
+<?php 
+session_start();
+
+if(isset($_SESSION['email'])) {
+
+}
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -116,6 +128,28 @@
             }
         </script>
     
+        <?php
+             session_start();
+
+             if(isset($_SESSION['email'])) {
+                header("Location: Home.php");
+                exit();
+             }
+
+             if($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $email = $_POST['email'];
+                $password = $_POST['password'];
+
+                if($email === 'user@gmail.com' && $password === 'pass') {
+                    $_SESSION['email'] = $email;
+                    header('Location: Home.php');
+                    exit();
+                }
+                else {
+                    $error_message = "Invalid email or pass";
+                }
+             }
+        ?>
     </main>
 </body>
 
