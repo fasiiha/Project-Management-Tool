@@ -58,6 +58,30 @@
                     </div>
                 </div>
                 <div class="row">
+                <div class="col-lg-12">
+                        <div class="card card-widget task-card">
+                            <div class="card-body">
+                                <div class="d-flex flex-wrap align-items-center justify-content-between">
+                                    <div class="d-flex align-items-center">
+                                        <div class="custom-control custom-task custom-checkbox custom-control-inline">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck2">
+                                            <label class="custom-control-label" for="customCheck2"></label>
+                                        </div>
+                                        <div>
+                                            <h5 class="mb-2">{{ $tasks->task_name }}</h5>
+                                            <div class="media align-items-center">
+                                                <div class="btn bg-body mr-3"><i class="ri-align-justify mr-2"></i>5/10
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="media align-items-center mt-md-0 mt-3">
+                                        <a href="#" data-target="#collapseEdit" data-toggle="modal" class="btn bg-secondary-light mr-3">Design</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-lg-12">
                         <div class="card card-widget task-card">
                             <div class="card-body">
