@@ -194,10 +194,11 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
+                        <form action="/create" method="POST">
                         <div class="col-lg-12">
                             <div class="form-group mb-3">
                                 <label for="exampleInputText01" class="h5">Task Name</label>
-                                <input type="text" class="form-control" id="exampleInputText01" placeholder="Task Name">
+                                <input name="name" type="text" class="form-control" id="exampleInputText01" placeholder="Task Name">
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -215,13 +216,13 @@
                         <div class="col-lg-6">
                             <div class="form-group mb-3">
                                 <label for="exampleInputText004" class="h5">Due Dates*</label>
-                                <input type="date" class="form-control" id="exampleInputText004" value="">
+                                <input name="date" type="date" class="form-control" id="exampleInputText004" value="">
                             </div>                        
                         </div>
                         <div class="col-lg-12">
                             <div class="form-group mb-3">
                                 <label for="exampleInputText07" class="h5">Assign Members*</label>
-                                <input type="text" class="form-control" id="exampleInputText07">
+                                <input name="member" type="text" class="form-control" id="exampleInputText07">
                             </div>
                         </div>
                         <div class="col-lg-12">
@@ -230,6 +231,7 @@
                                 <div class="btn btn-primary" data-dismiss="modal">Cancel</div>
                             </div>
                         </div>
+                    </form>
                     </div>
                 </div>
             </div>
@@ -250,6 +252,7 @@
                         <div><a href="#" class="btn bg-secondary-light">Design</a></div>
                     </div>
                     <div class="card-body">
+                        <form action="/create" method="POST">
                         <div class="form-group mb-3 position-relative">
                             <input type="text" class="form-control bg-white"
                                 placeholder="Enter Task Name">
@@ -262,7 +265,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group mb-0">
                                             <label for="exampleInputText2" class="h5">Members</label>
-                                            <select name="type" class="form-control" data-style="py-0">
+                                            <select name="member" class="form-control" data-style="py-0">
                                                 <option>Members</option>
                                                 <option>Kianna Septimus</option>
                                                 <option>Jaxson Herwitz</option>
@@ -274,7 +277,7 @@
                                         <div class="form-group mb-0">
                                             <label for="exampleInputText4" class="h5">Due
                                                 Dates</label>
-                                            <input type="date" class="form-control" id="exampleInputText4" value="">
+                                            <input name="date" type="date" class="form-control" id="exampleInputText4" value="">
                                         </div>
                                     </div>
                                 </div>
@@ -359,6 +362,7 @@
                                 <label class="custom-file-label" for="inputGroupFile002">Upload media</label>
                             </div>
                         </div>
+                    </form>
                     </div>
                 </div>
             </div>
