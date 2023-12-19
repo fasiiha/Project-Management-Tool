@@ -17,8 +17,6 @@ Route::get('/', function () {
     return view('Home');
 });
 
-Route::post('/create', 'App\Http\Controllers@store');
+Route::post('/create', 'App\Http\Controllers\TaskCOntroller@store');
 
-Route::get('/task', function () {
-    return view('tasks');
-});
+Route::get('/task', 'App\Http\Controllers\TaskCOntroller@index');

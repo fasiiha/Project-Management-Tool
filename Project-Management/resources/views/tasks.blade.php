@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" />
-    <link rel="stylesheet" href="./css/calendar.css" />
-    <link rel="stylesheet" href="./css/Sidebar.css" />
+   
+    <link rel="stylesheet" href="{{asset('css/Sidebar.css')}}">
+    <link rel="stylesheet" href="{{asset('css/calendar.css')}}">
 
 </head>
 
@@ -58,6 +59,33 @@
                     </div>
                 </div>
                 <div class="row">
+                    <div class="row">
+                        @foreach ($tasks as $task)
+                        <div class="col-lg-12">
+                            <div class="card card-widget task-card">
+                                <div class="card-body">
+                                    <div class="d-flex flex-wrap align-items-center justify-content-between">
+                                        <div class="d-flex align-items-center">
+                                            <div class="custom-control custom-task custom-checkbox custom-control-inline">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck01">
+                                                <label class="custom-control-label" for="customCheck01"></label>
+                                            </div>
+                                            <div>
+                                                <h5 class="mb-2"> {{ $task->task_name }}</h5>
+                                                <div class="media align-items-center">
+                                                    <div class="btn bg-body mr-3"><i class="ri-align-justify mr-2"></i>5/10
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="media align-items-center mt-md-0 mt-3">
+                                            <a href="#" data-target="#collapseEdit" data-toggle="modal" class="btn bg-secondary-light mr-3">Design</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
                     <div class="col-lg-12">
                         <div class="card card-widget task-card">
                             <div class="card-body">
@@ -195,6 +223,7 @@
                 <div class="modal-body">
                     <div class="row">
                         <form action="/create" method="POST">
+                            @csrf
                         <div class="col-lg-12">
                             <div class="form-group mb-3">
                                 <label for="exampleInputText01" class="h5">Task Name</label>
@@ -227,7 +256,8 @@
                         </div>
                         <div class="col-lg-12">
                             <div class="d-flex flex-wrap align-items-ceter justify-content-center mt-2">
-                                <div class="btn btn-primary mr-3" data-dismiss="modal">Save</div>
+                                {{-- <div class="btn btn-primary mr-3" data-dismiss="modal">Save</div> --}}
+                                <input type="submit"Submit>
                                 <div class="btn btn-primary" data-dismiss="modal">Cancel</div>
                             </div>
                         </div>
@@ -370,10 +400,10 @@
     </div>
 
     <!-- JQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="scripts.js"></script>
-    <script src="js/backend-bundle.min.js"></script>
-
+  
+    <script src="{{ asset('js/backend-bundle.min.js')}}"></script>
+    <script src="{{ asset('js/backend-bundle.min.js')}}"></script>
+    <script src="{{ asset('https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')}}"></script>
 </body>
 
 </html>
