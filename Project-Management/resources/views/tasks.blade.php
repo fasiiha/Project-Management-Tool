@@ -8,11 +8,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" />
-    <!-- <link rel="stylesheet" href="./css/calendar.css" />
-    <link rel="stylesheet" href="./css/Sidebar.css" /> -->
 
-    <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/Sidebar.css') }}">
-
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/Sidebar.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/calendar.css')}}">
 </head>
 
 <body>
@@ -60,7 +58,7 @@
                     </div>
                 </div>
                 <div class="row">
-                <div class="col-lg-12">
+                    <div class="col-lg-12">
                         <div class="card card-widget task-card">
                             <div class="card-body">
                                 <div class="d-flex flex-wrap align-items-center justify-content-between">
@@ -71,129 +69,6 @@
                                         </div>
                                         <div>
                                             <h5 class="mb-2">{{ $tasks->task_name }}</h5>
-                                            <div class="media align-items-center">
-                                                <div class="btn bg-body mr-3"><i class="ri-align-justify mr-2"></i>5/10
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="media align-items-center mt-md-0 mt-3">
-                                        <a href="#" data-target="#collapseEdit" data-toggle="modal" class="btn bg-secondary-light mr-3">Design</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="card card-widget task-card">
-                            <div class="card-body">
-                                <div class="d-flex flex-wrap align-items-center justify-content-between">
-                                    <div class="d-flex align-items-center">
-                                        <div class="custom-control custom-task custom-checkbox custom-control-inline">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck01">
-                                            <label class="custom-control-label" for="customCheck01"></label>
-                                        </div>
-                                        <div>
-                                            <h5 class="mb-2">Design landing page</h5>
-                                            <div class="media align-items-center">
-                                                <div class="btn bg-body mr-3"><i class="ri-align-justify mr-2"></i>5/10
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="media align-items-center mt-md-0 mt-3">
-                                        <a href="#" data-target="#collapseEdit" data-toggle="modal" class="btn bg-secondary-light mr-3">Design</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="card card-widget task-card">
-                            <div class="card-body">
-                                <div class="d-flex flex-wrap align-items-center justify-content-between">
-                                    <div class="d-flex align-items-center">
-                                        <div class="custom-control custom-task custom-checkbox custom-control-inline">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck2">
-                                            <label class="custom-control-label" for="customCheck2"></label>
-                                        </div>
-                                        <div>
-                                            <h5 class="mb-2">Create unique style of inner pages</h5>
-                                            <div class="media align-items-center">
-                                                <div class="btn bg-body mr-3"><i class="ri-align-justify mr-2"></i>5/10
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="media align-items-center mt-md-0 mt-3">
-                                        <a href="#" data-target="#collapseEdit" data-toggle="modal" class="btn bg-secondary-light mr-3">Design</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="card card-widget task-card">
-                            <div class="card-body">
-                                <div class="d-flex flex-wrap align-items-center justify-content-between">
-                                    <div class="d-flex align-items-center">
-                                        <div class="custom-control custom-task custom-checkbox custom-control-inline">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck10">
-                                            <label class="custom-control-label" for="customCheck10"></label>
-                                        </div>
-                                        <div>
-                                            <h5 class="mb-2">Activate from WordPress Dashboard
-                                            </h5>
-                                            <div class="media align-items-center">
-                                                <div class="btn bg-body mr-3"><i class="ri-align-justify mr-2"></i>5/10
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="media align-items-center mt-md-0 mt-3">
-                                        <a href="#" data-target="#collapseEdit" data-toggle="modal" class="btn bg-secondary-light mr-3">Design</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="card card-widget task-card">
-                            <div class="card-body">
-                                <div class="d-flex flex-wrap align-items-center justify-content-between">
-                                    <div class="d-flex align-items-center">
-                                        <div class="custom-control custom-task custom-checkbox custom-control-inline">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck18">
-                                            <label class="custom-control-label" for="customCheck18"></label>
-                                        </div>
-                                        <div>
-                                            <h5 class="mb-2">Add code to output Post Title &
-                                                Text</h5>
-                                            <div class="media align-items-center">
-                                                <div class="btn bg-body mr-3"><i class="ri-align-justify mr-2"></i>5/10
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="media align-items-center mt-md-0 mt-3">
-                                        <a href="#" data-target="#collapseEdit" data-toggle="modal" class="btn bg-secondary-light mr-3">Design</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="card card-widget task-card mb-0">
-                            <div class="card-body">
-                                <div class="d-flex flex-wrap align-items-center justify-content-between">
-                                    <div class="d-flex align-items-center">
-                                        <div class="custom-control custom-task custom-checkbox custom-control-inline">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck26">
-                                            <label class="custom-control-label" for="customCheck26"></label>
-                                        </div>
-                                        <div>
-                                            <h5 class="mb-2">Add Header and Footer To Template
-                                            </h5>
                                             <div class="media align-items-center">
                                                 <div class="btn bg-body mr-3"><i class="ri-align-justify mr-2"></i>5/10
                                                 </div>
