@@ -58,6 +58,7 @@
                     </div>
                 </div>
                 <div class="row">
+                @foreach ($tasks as $task) 
                     <div class="col-lg-12">
                         <div class="card card-widget task-card">
                             <div class="card-body">
@@ -68,7 +69,7 @@
                                             <label class="custom-control-label" for="customCheck2"></label>
                                         </div>
                                         <div>
-                                            <h5 class="mb-2">{{ $tasks->task_name }}</h5>
+                                            <h5 class="mb-2">{{ $task->task_name }}</h5>
                                             <div class="media align-items-center">
                                                 <div class="btn bg-body mr-3"><i class="ri-align-justify mr-2"></i>5/10
                                                 </div>
@@ -82,6 +83,7 @@
                             </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>
