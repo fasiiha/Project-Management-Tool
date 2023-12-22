@@ -21,7 +21,6 @@ class TaskCOntroller extends Controller
 
     public function index() {
         $tasks = DB::select("select * from tasks");
-
         return view('tasks',['tasks' => $tasks]);
     }
 
