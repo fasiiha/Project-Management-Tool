@@ -1,6 +1,7 @@
 @extends('layouts.layout') 
 @section('content') 
 <title>Tasks</title>
+<link rel="stylesheet" href="{{asset('css/calendar.css')}}">
     <div class="container-fluid h-100">
         <div class="row justify-content-center h-100">
             <div class="col-lg-12">

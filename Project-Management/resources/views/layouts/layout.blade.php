@@ -10,11 +10,10 @@
     <link rel="stylesheet" href="{{asset('https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css')}}">
 
     <link rel="stylesheet" href="{{asset('css/Sidebar.css')}}">
-    <link rel="stylesheet" href="{{asset('css/calendar.css')}}">
 
 </head>
 
-<body>
+<body style="background: #232733;">
     <div id="sidebar">
         <header>
           <a href="#">Project</a>

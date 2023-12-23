@@ -5,6 +5,7 @@
     <script src="{{ asset('js/calendar.js')}}"></script>
     
     <link rel="stylesheet" href="{{asset('css/tui-calendar.css')}}">
+    <link rel="stylesheet" href="{{asset('css/calendar.css')}}">
 
     <title>Calendar</title>
     
