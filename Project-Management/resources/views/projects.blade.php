@@ -1,21 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projects</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" />
-    <link rel="stylesheet" href="./css/calendar.css" />
-    <link rel="stylesheet" href="./css/Sidebar.css" />
-</head>
-
-<body>
-    @include('Sidebar')
-
-    <div class="content">
+@extends('layouts.layout') 
+@section('content') 
+<title>Project</title>
+<link rel="stylesheet" href="{{asset('css/calendar.css')}}">
         <div class="container-fluid h-100">
             <div class="row justify-content-center h-100">
                 <div class="col-lg-12">
@@ -32,8 +18,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <a href="#" class="btn" data-target="#collapseEdit" data-toggle="modal">New
-                                        Project</a>
+                                    <a href="#" class="btn" data-target="#collapseEdit" data-toggle="modal">New Project</a>
                                 </div>
                             </div>
                         </div>
@@ -89,63 +74,6 @@
                                     <div class="col-sm-8">
                                         <div class="d-flex align-items-center">
                                             <div class="ml-3">
-                                                <h5 class="mb-1">WordPress Dashboard</h5>
-                                                <p class="mb-0">Build a Cloud-based Hotel Management Theme.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 text-sm-right mt-3 mt-sm-0">
-                                        <a class="btn btn-white text-success link-shadow">High</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-sm-8">
-                                        <div class="d-flex align-items-center">
-                                            <div class="ml-3">
-                                                <h5 class="mb-1">Hotel Management App</h5>
-                                                <p class="mb-0">Build a Cloud-based Hotel Management Theme.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 text-sm-right mt-3 mt-sm-0">
-                                        <a class="btn btn-white text-primary link-shadow">High</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-sm-8">
-                                        <div class="d-flex align-items-center">
-                                            <div class="ml-3">
-                                                <h5 class="mb-1">Video Streaming Theme</h5>
-                                                <p class="mb-0">Launch OTT and media streaming theme.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4 text-sm-right mt-3 mt-sm-0">
-                                        <a class="btn btn-white text-secondary link-shadow">Medium</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-sm-8">
-                                        <div class="d-flex align-items-center">
-                                            <div class="ml-3">
                                                 <h5 class="mb-1">Medical Clinic Theme</h5>
                                                 <p class="mb-0">Hospital and private clinic doctor's theme.</p>
                                             </div>
@@ -177,10 +105,9 @@
                             </div>
                         </div>
                     </div>
-                    
+                </div>
             </div>
         </div>
-
         <div class="modal fade" role="dialog" aria-modal="true" id="new-create-modal">
             <div class="modal-dialog  modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -312,9 +239,6 @@
                                     </div>
                                 </div>
                             </div>
-
-
-                            
                         <div class="card mb-3">
                             <div class="card-body">
                                 <div class="row justify-content-center">
@@ -339,12 +263,8 @@
                 </div>
             </div>
         </div>
+    
+@endsection
 
-        <!-- JQuery -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script type="text/javascript" src="scripts.js"></script>
-        <script src="js/backend-bundle.min.js"></script>
 
-</body>
 
-</html>

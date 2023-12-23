@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+@extends('layouts.layout') 
+@section('content') 
     <title>Team Members</title>
     <link rel="stylesheet" href="./css/TeamMembers.css" />
     <link rel="stylesheet" href="./css/Sidebar.css" />
@@ -18,10 +15,6 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-  </head>
-  <body style="background: #232733;">
-    @include('Sidebar')
-    <div class="content">
       <div class="container">
         <h1 class="header">Team Members</h1>
         <div class="row mt-n1-9">
@@ -195,6 +188,5 @@
           </div>
         </div>
       </div>
-    </div>
-  </body>
-</html>
+
+@endsection
