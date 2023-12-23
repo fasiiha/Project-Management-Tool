@@ -29,6 +29,6 @@ Route::get('/setting', 'App\Http\Controllers\SidebarController@setting_index')->
 Route::get('/profile', 'App\Http\Controllers\SidebarController@profile_index')->name('Profile');
 
 
-Route::get('/chat','App\Http\Controllers\PusherController@index');
-Route::push('/broadcast','App\Http\Controllers\PusherController@broadcast');
-Route::push('/receive','App\Http\Controllers\PusherController@receive');
+Route::get('/chat', 'App\Http\Controllers\PusherController@index');
+Route::post('/broadcast', 'App\Http\Controllers\PusherController@broadcast');
+Route::post('/receive', 'App\Http\Controllers\PusherController@receive');
