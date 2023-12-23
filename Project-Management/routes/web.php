@@ -29,4 +29,4 @@ Route::get('/setting', 'App\Http\Controllers\SidebarController@setting_index')->
 Route::get('/profile', 'App\Http\Controllers\SidebarController@profile_index')->name('Profile');
 
 
-Route
+Route::get('/chat','App\Http\Controllers\PusherController@index');
