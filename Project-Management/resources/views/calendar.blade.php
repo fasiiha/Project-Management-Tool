@@ -1,82 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout') 
+@section('content') 
+    <script src="{{ asset('js/tui-code-snippet.js')}}"></script>
+    <script src="{{ asset('js/tui-calendar.min.js')}}"></script>
+    <script src="{{ asset('js/calendar.js')}}"></script>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calender</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" />
-    <link rel="stylesheet" href="./css/calendar.css" />
-    <link rel="stylesheet" href="./css/Sidebar.css" />
+    <link rel="stylesheet" href="{{asset('css/tui-calendar.css')}}">
 
-    <link rel="stylesheet" href="css/tui-calendar.css">
-</head>
-
-<body>
-    <div id="sidebar">
-        <header>
-          <a href="#">Project</a>
-        </header>
-        <div class="nav">
-          <a href="./Home.html">
-            <i class="zmdi zmdi-view-dashboard"></i> Home
-          </a>
-          <a href="./Activity.html"> <i class="zmdi zmdi-link"></i> Activity </a>
-          <a href="./Discuss.html">
-            <i class="zmdi zmdi-widgets"></i> Discussion
-          </a>
-          <a href="./calendar.html"> <i class="zmdi zmdi-calendar"></i> Calender </a>
-          <a href="./projects.html"> <i class="zmdi zmdi-info-outline"></i> Projects </a>
-          <a href="./TeamMembers.html">
-            <i class="zmdi zmdi-info-outline"></i> Team Members
-          </a>
-          <a href="./tasks.html"> <i class="zmdi zmdi-settings"></i> Tasks </a>
-          <a href="./settings.html">
-            <i class="zmdi zmdi-comment-more"></i> Settings
-          </a>
-          <a href="./UserProfile.html">
-            <i class="zmdi zmdi-comment-more"></i> Profile
-          </a>
+    <title>Calendar</title>
+    
+    <div class="container-fluid h-100">
+        <div class="row justify-content-center h-100">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center justify-content-between breadcrumb-content">
+                            <h5>Calender</h5>
+                            <div>
+                                <a href="#" class="btn" data-target="#new-create-modal" data-toggle="modal">Create New</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-8">
+                <div class="card card-block card-stretch card-height">
+                    <div class="card-header d-flex justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <h5 class="mr-3">20 Nov, Friday</h5>
+                        </div>
+                        <div class="d-flex align-items-center" id="calchart">
+                            <select name="cal_type" id="cal-type">
+                                <option value="day">Day</option>
+                                <option value="week">Week</option>
+                                <option value="month">Month</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-
-    <div class="content">
-        <div class="container-fluid h-100">
-            <div class="row justify-content-center h-100">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center justify-content-between breadcrumb-content">
-                                <h5>Calender</h5>
-                                <div>
-                                    <a href="#" class="btn" data-target="#new-create-modal" data-toggle="modal">Create New</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-8">
-                    <div class="card card-block card-stretch card-height">
-                        <div class="card-header d-flex justify-content-between">
-                            <div class="d-flex align-items-center">
-                                <h5 class="mr-3">20 Nov, Friday</h5>
-                            </div>
-                            <div class="d-flex align-items-center" id="calchart">
-                                <select name="cal_type" id="cal-type">
-                                    <option value="day">Day</option>
-                                    <option value="week">Week</option>
-                                    <option value="month">Month</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card-body">
-                <div id="calendar" style="height: 600px; width: 100%;"></div>
-            </div>
+        <div class="card-body">
+            <div id="calendar" style="height: 600px; width: 100%;"></div>
         </div>
     </div>
 
@@ -124,16 +88,4 @@
         </div>
     </div>
 
-    <!-- JQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="scripts.js"></script>
-
-    
-    <script src="js/backend-bundle.min.js"></script>
-
-    <script src="js/tui-code-snippet.js"></script>
-    <script src="js/tui-calendar.min.js"></script>
-    <script src="js/calendar.js"></script>
-</body>
-
-</html>
+@endsection
