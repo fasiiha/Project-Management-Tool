@@ -1,4 +1,4 @@
-@extends('layputs.layout') 
+@extends('layouts.layout') 
 @section('content') 
 <title>Home</title>
   <link rel="stylesheet" href="{{asset('css/Home.css')}}">
