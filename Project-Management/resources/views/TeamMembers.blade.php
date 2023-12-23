@@ -1,4 +1,4 @@
-@extends('layout') 
+@extends('layouts.layout') 
 @section('content') 
     <title>Team Members</title>
     <link rel="stylesheet" href="./css/TeamMembers.css" />

@@ -1,59 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
+@extends('layouts.layout') 
+@section('content') 
     <title>Settings</title>
 
-    <!-- Meta -->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-    <meta
+    <!-- <meta
       name="description"
       content="Portal - Bootstrap 5 Admin Dashboard Template For Developers"
     />
-    <meta name="author" content="Xiaoying Riley at 3rd Wave Media" />
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media" /> -->
     <link rel="shortcut icon" href="favicon.ico" />
     <script defer src="assets/plugins/fontawesome/js/all.min.js"></script>
     <!-- App CSS -->
     <link id="theme-style" rel="stylesheet" href="./css/settings.css" />
-    <link rel="stylesheet" href="./css/Sidebar.css" />
-  </head>
 
-  <body class="app">
-    <div id="sidebar">
-      <header>
-        <a href="#">Project</a>
-      </header>
-      <div class="nav">
-        <a href="./Home.html">
-          <i class="zmdi zmdi-view-dashboard"></i> Home
-        </a>
-        <a href="./Activity.html"> <i class="zmdi zmdi-link"></i> Activity </a>
-        <a href="./Discuss.html">
-          <i class="zmdi zmdi-widgets"></i> Discussion
-        </a>
-        <a href="./calendar.html"> <i class="zmdi zmdi-calendar"></i> Calender </a>
-        <a href="./projects.html"> <i class="zmdi zmdi-info-outline"></i> Projects </a>
-        <a href="./TeamMembers.html">
-          <i class="zmdi zmdi-info-outline"></i> Team Members
-        </a>
-        <a href="./tasks.html"> <i class="zmdi zmdi-settings"></i> Tasks </a>
-        <a href="./settings.html">
-          <i class="zmdi zmdi-comment-more"></i> Settings
-        </a>
-        <a href="./UserProfile.html">
-          <i class="zmdi zmdi-comment-more"></i> Profile
-        </a>
-      </div>
-    </div>
-
-    <div class="content">
+    
       <div class="app-wrapper">
         <div class="app-content pt-3 p-md-3 p-lg-4">
           <div class="container-xl">
@@ -362,12 +327,11 @@
         <!--//app-content-->
       </div>
       <!--//app-wrapper-->
-    </div>
     <!-- Javascript -->
     <script src="assets/plugins/popper.min.js"></script>
     <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Page Specific JS -->
     <script src="assets/js/app.js"></script>
-  </body>
-</html>
+
+@endsection
