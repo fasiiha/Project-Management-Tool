@@ -12,8 +12,6 @@
     <link rel="stylesheet" href="{{asset('css/Sidebar.css')}}">
     <link rel="stylesheet" href="{{asset('css/calendar.css')}}">
 
-    <!-- <link rel="stylesheet" href="{{asset('css/tui-calendar.css')}}"> -->
-
 </head>
 
 <body>
@@ -56,7 +54,6 @@
     <!-- <script src="{{ asset('js/tui-code-snippet.js')}}"></script> -->
     <!-- <script src="{{ asset('js/tui-calendar.min.js')}}"></script> -->
     <script src="{{ asset('js/calendar.js')}}"></script>
-
 
 </body>
 </html>

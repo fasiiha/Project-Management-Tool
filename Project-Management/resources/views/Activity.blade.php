@@ -1,52 +1,9 @@
-<!DOCTYPE html>
-<!-- w -->
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Activity</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="./css/Activity.css" />
-    <link rel="stylesheet" href="./css/Sidebar.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    />
-  </head>
-  <body>
-    <div id="sidebar">
-      <header>
-        <a href="#">Project</a>
-      </header>
-      <div class="nav">
-        <a href="./Home.html">
-          <i class="zmdi zmdi-view-dashboard"></i> Home
-        </a>
-        <a href="./Activity.html"> <i class="zmdi zmdi-link"></i> Activity </a>
-        <a href="./Discuss.html">
-          <i class="zmdi zmdi-widgets"></i> Discussion
-        </a>
-        <a href="./calendar.html"> <i class="zmdi zmdi-calendar"></i> Calender </a>
-        <a href="./projects.html"> <i class="zmdi zmdi-info-outline"></i> Projects </a>
-        <a href="./TeamMembers.html">
-          <i class="zmdi zmdi-info-outline"></i> Team Members
-        </a>
-        <a href="./tasks.html"> <i class="zmdi zmdi-settings"></i> Tasks </a>
-        <a href="./settings.html">
-          <i class="zmdi zmdi-comment-more"></i> Settings
-        </a>
-        <a href="./UserProfile.html">
-          <i class="zmdi zmdi-comment-more"></i> Profile
-        </a>
-      </div>
-    </div>
-    <div class="content">
-      <div class="container bootdey">
+@extends('layouts.layout') 
+@section('content') 
+  <title>Activity</title>
+  <link rel="stylesheet" href="{{asset('css/Activity.css')}}">
+
+  <div class="container bootdey">
         <div class="col-md-12 bootstrap snippets">
           <div class="panel">
             <div class="panel-body">
@@ -120,7 +77,7 @@
                     >
                   </div>
                   <hr />
-
+  
                   <!-- Comments -->
                   <div>
                     <div class="media-block">
@@ -169,7 +126,7 @@
                         <hr />
                       </div>
                     </div>
-
+  
                     <div class="media-block">
                       <a class="media-left" href="#"
                         ><img
@@ -220,7 +177,7 @@
               </div>
               <!--===================================================-->
               <!-- End Newsfeed Content -->
-
+  
               <!-- Newsfeed Content -->
               <!--===================================================-->
               <div class="media-block pad-all">
@@ -265,7 +222,7 @@
                     >
                   </div>
                   <hr />
-
+  
                   <!-- Comments -->
                   <div>
                     <div class="media-block pad-all">
@@ -317,6 +274,9 @@
           </div>
         </div>
       </div>
-    </div>
-  </body>
-</html>
+
+@endsection
+
+
+
+

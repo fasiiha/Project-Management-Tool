@@ -1,4 +1,4 @@
-@extends('layout') 
+@extends('layouts.layout') 
 @section('content') 
     <script src="{{ asset('js/tui-code-snippet.js')}}"></script>
     <script src="{{ asset('js/tui-calendar.min.js')}}"></script>
