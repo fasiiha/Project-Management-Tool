@@ -1,15 +1,3 @@
-<?php 
-session_start();
-
-if(isset($_SESSION['email'])) {
-
-}
-
-
-?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,10 +30,11 @@ if(isset($_SESSION['email'])) {
         <div class="cont">
             <div class="form sign-in" style="display: flex; flex-direction: column; align-items: center;">
                 <h2>Login</h2>
-                <form onsubmit="return validate()" action="Home.php" method="post">
+                <form onsubmit="return validate()" action="login" method="POST">
+                    @csrf
                     <label>
                         <span>Email</span>
-                        <input type="email" name="email" >
+                        <input type="text" name="email" >
                     </label>
                     <label>
                         <span>Password</span>
@@ -72,7 +61,8 @@ if(isset($_SESSION['email'])) {
                 </div>
                 <div class="form sign-up" style="display: flex; flex-direction: column; align-items: center;">
                     <h2>Create your Account</h2>
-                    <form onsubmit="return validate()" action="Home.php" method="post">
+                    <form onsubmit="return validate()" action="signup" method="POST">
+                        @csrf
                         <div>
                             <label>
                                 <span>Name</span>
@@ -94,7 +84,6 @@ if(isset($_SESSION['email'])) {
                             </label>
                         </div>
                         <p id="password">Password must be alphanumeric (@,- and _ also included) and be 8-20 characters</p>
-    
                         <button type="submit">Sign Up</button>
                     </form>
                 </div>
@@ -128,28 +117,6 @@ if(isset($_SESSION['email'])) {
             }
         </script>
     
-        <?php
-             session_start();
-
-             if(isset($_SESSION['email'])) {
-                header("Location: Home.php");
-                exit();
-             }
-
-             if($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $email = $_POST['email'];
-                $password = $_POST['password'];
-
-                if($email === 'user@gmail.com' && $password === 'pass') {
-                    $_SESSION['email'] = $email;
-                    header('Location: Home.php');
-                    exit();
-                }
-                else {
-                    $error_message = "Invalid email or pass";
-                }
-             }
-        ?>
     </main>
 </body>
 
