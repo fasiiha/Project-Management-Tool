@@ -17,6 +17,24 @@ Route::middleware([
     Route::get('/dashboard', function () { return view('dashboard'); })->name('dashboard');
 });
 
+Route::get("login",function() {
+    if(session()->has('email')){
+        return redirect('home');
+    }
+    return view('login');
+});
+
+Route::get("logout",function() {
+    if(session()->has('email')){
+        session()->pull('email',null);
+    }
+    return redirect('login');
+});
+
+Route::post('login','App\Http\Controllers\TaskCOntroller@login');
+Route::post('signup','App\Http\Controllers\TaskCOntroller@signup');
+Route::post('/complete','App\Http\Controllers\TaskCOntroller@complete');
+Route::post('projects','App\Http\Controllers\TaskCOntroller@projects');
 
 Route::get('/home', 'App\Http\Controllers\SidebarController@home_index')->name('Home');
 Route::get('/activity', 'App\Http\Controllers\SidebarController@activity_index')->name('Activity');

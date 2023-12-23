@@ -9,6 +9,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex flex-wrap align-items-center justify-content-between breadcrumb-content">
+                            <h4>Hello, {{session('username')}}</h4>    
                             <h5>Your Task</h5>
                             <div class="d-flex flex-wrap align-items-center">
                                 
@@ -32,14 +33,11 @@
                                         <div>
                                             <h5 class="mb-2">{{ $task->task_name }}</h5>
                                             <div class="media align-items-center">
-                                                <div class="btn bg-body mr-3"><i class="ri-align-justify mr-2"></i>5/10
-                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="media align-items-center mt-md-0 mt-3">
-                                        <a href="#" data-target="#collapseEdit" data-toggle="modal" class="btn bg-secondary-light mr-3">Design</a>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
