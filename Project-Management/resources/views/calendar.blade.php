@@ -3,7 +3,7 @@
     <script src="{{ asset('js/tui-code-snippet.js')}}"></script>
     <script src="{{ asset('js/tui-calendar.min.js')}}"></script>
     <script src="{{ asset('js/calendar.js')}}"></script>
-
+    
     <link rel="stylesheet" href="{{asset('css/tui-calendar.css')}}">
 
     <title>Calendar</title>

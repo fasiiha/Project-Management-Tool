@@ -52,10 +52,10 @@
     <script src="{{ asset('https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')}}"></script>
     
     
-    <!-- <script type="text/javascript" src="scripts.js"></script>
-    <script src="{{ asset('js/tui-code-snippet.js')}}"></script>
-    <script src="{{ asset('js/tui-calendar.min.js')}}"></script>
-    <script src="{{ asset('js/calendar.js')}}"></script> -->
+    <!-- <script type="text/javascript" src="scripts.js"></script> -->
+    <!-- <script src="{{ asset('js/tui-code-snippet.js')}}"></script> -->
+    <!-- <script src="{{ asset('js/tui-calendar.min.js')}}"></script> -->
+    <script src="{{ asset('js/calendar.js')}}"></script>
 
 
 </body>
