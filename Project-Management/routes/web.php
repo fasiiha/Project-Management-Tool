@@ -30,3 +30,5 @@ Route::get('/profile', 'App\Http\Controllers\SidebarController@profile_index')->
 
 
 Route::get('/chat','App\Http\Controllers\PusherController@index');
+Route::push('/broadcast','App\Http\Controllers\PusherController@broadcast');
+Route::push('/receive','App\Http\Controllers\PusherController@receive');
