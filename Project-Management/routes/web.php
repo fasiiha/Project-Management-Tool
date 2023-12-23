@@ -27,3 +27,6 @@ Route::get('/team-members', 'App\Http\Controllers\SidebarController@member_index
 Route::get('/task', 'App\Http\Controllers\SidebarController@task_index')->name('Task');
 Route::get('/setting', 'App\Http\Controllers\SidebarController@setting_index')->name('Setting');
 Route::get('/profile', 'App\Http\Controllers\SidebarController@profile_index')->name('Profile');
+
+
+Route
