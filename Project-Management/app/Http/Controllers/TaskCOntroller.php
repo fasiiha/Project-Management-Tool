@@ -11,21 +11,27 @@ use Illuminate\Support\Facades\DB;
 class TaskCOntroller extends Controller
 {
     public function login(Request $request) {
-        $data = $request->input('email');
+        $email = $request->input('email');
+        $pass = $request->input('pass');
+
+        if ($email == NULL || $pass == NULL) {
+            echo '<script>alert("Enter complete data")</script>';
+            return view("login");
+        }
         
-        $result = DB::select("SELECT username FROM user WHERE email = '$data'");
+        $result = DB::select("SELECT username FROM user WHERE email = '$email' and password = '$pass'");
 
         // Check if there's a result
         if (!empty($result)) {
-            // Access the first result and extract the task_id
             $firstResult = $result[0];
             $name = $firstResult->username;
 
             // Now $name contains the task_id as a string
             echo $name;
         } else {
-            // Handle the case where no results were found
-            echo "No result found for task_name: $data";
+            echo '<script>alert("Invalid User")</script>';
+            return view("login");
+            // echo "No result found for task_name: $data";
         }
 
         $request->session()->put("username",$name);
@@ -35,6 +41,13 @@ class TaskCOntroller extends Controller
 
     public function signup(Request $request) {
         $user = new users;
+        $email = $request->input('email2');
+
+        $result = DB::select("SELECT username FROM user WHERE email = '$email'");
+        if (!empty($result)) {
+            echo '<script>alert("User already exists")</script>';
+            return view("login");
+        }
         
         $user->username = $request->input('name');
         $user->email = $request->input('email2');

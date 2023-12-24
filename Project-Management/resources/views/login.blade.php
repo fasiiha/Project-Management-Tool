@@ -4,15 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-    <link rel="stylesheet" href="./css/Sidebar.css" />
+    <title>Login</title>
     <link rel="stylesheet" href="./css/login.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css"
-        href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap-extended.min.css" />
-    <link rel="stylesheet" type="text/css"
-        href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css" />
-
     <link rel="stylesheet" type="text/css"
         href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
@@ -34,11 +27,11 @@
                     @csrf
                     <label>
                         <span>Email</span>
-                        <input type="text" name="email" >
+                        <input type="email" name="email" >
                     </label>
                     <label>
                         <span>Password</span>
-                        <input type="password" >
+                        <input type="password" name="pass">
                     </label>
                     <p id="email">Enter a valid address, e.g. me@mydomain.com</p>
                     <button type="submit">Sign In</button>
@@ -61,26 +54,26 @@
                 </div>
                 <div class="form sign-up" style="display: flex; flex-direction: column; align-items: center;">
                     <h2>Create your Account</h2>
-                    <form onsubmit="return validate()" action="signup" method="POST">
+                    <form  action="signup" method="POST">
                         @csrf
                         <div>
                             <label>
                                 <span>Name</span>
-                                <input type="text" name="name" >
+                                <input type="text" name="name" onkeyup="return validate(this)">
                             </label>
                         </div>
                         <p id="name">Name must be alphabets and contain 5-12 characters</p>
                         <div>
                             <label>
                                 <span>Email</span>
-                                <input type="email" name="email2" >
+                                <input type="email" name="email2" onkeyup="return validate(this)">
                             </label>
                         </div>
                         <p id="email2">Email must be a valid address, e.g. me@mydomain.com</p>
                         <div>
                             <label>
                                 <span>Password</span>
-                                <input type="password" name="password" >
+                                <input type="password" name="password" onkeyup="return validate(this)">
                             </label>
                         </div>
                         <p id="password">Password must be alphanumeric (@,- and _ also included) and be 8-20 characters</p>
@@ -104,7 +97,7 @@
             }
 
             function validate(field) {
-                if (patterns[field.name].test(field.value)) {
+                if (patterns[field.name].test(field.value) ) {
                     field.className = 'valid';
                     document.getElementById(field.name).style.color = "#232733";
                     return true;
@@ -115,8 +108,8 @@
                     return false;
                 }
             }
-        </script>
-    
+
+        </script>    
     </main>
 </body>
 
