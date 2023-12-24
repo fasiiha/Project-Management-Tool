@@ -16,7 +16,6 @@
    
       <div class="container">
         <div class="main-body">
-          <!-- /Breadcrumb -->
 
           <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
@@ -32,23 +31,15 @@
                       width="150"
                     />
                     <div class="mt-3">
-                      <h4>Name</h4>
+                      <h4>{{ $user->username }}</h4>
                       <p class="text-secondary mb-1">Developer</p>
-                      <p class="font-size-sm">abc,xyz</p>
-
-                      <button class="btn app-btn-primary">Message</button>
+                      <p class="font-size-sm"></p>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="card mt-3">
                 <div class="card-body ">
-                  <div class="row ">
-                    <h6 class="mb-0 ">
-                      <i class="fa-solid fa-globe"></i>  Website
-                    </h6>
-                  </div>
-                  <hr />
                   <div class="row">
                     <h6 class="mb-0">
                       <i class="fa-brands fa-github"></i>  Github
@@ -75,40 +66,23 @@
                     <div class="col-sm-3">
                       <h6 class="mb-0">Full Name</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">Name</div>
+                    <div class="col-sm-9 text-secondary">{{ $user->username }}</div>
                   </div>
                   <hr />
                   <div class="row">
                     <div class="col-sm-3">
                       <h6 class="mb-0">Email</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">example@mail.com</div>
+                    <div class="col-sm-9 text-secondary">{{ $user->email }}</div>
                   </div>
                   <hr />
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">Phone</h6>
+                      <h6 class="mb-0">Password</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">1234-5678</div>
+                    <div class="col-sm-9 text-secondary">{{ $user->password }}</div>
                   </div>
                   <hr />
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Mobile</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">000 111 222</div>
-                  </div>
-                  <hr />
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Address</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">abc, xyz</div>
-                  </div>
-                  <hr />
-                  <div class="row justify-content-center">
-                    <button class="btn app-btn-primary col-sm-2">Edit</button>
-                  </div>
                 </div>
               </div>
 
@@ -117,63 +91,15 @@
                   <div class="card h-100">
                     <div class="card-body">
                       <h6 class="d-flex align-items-center mb-3">
-                        Project Status
+                        Projects
                       </h6>
-                      <small>Web Design</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div
-                          class="progress-bar"
-                          role="progressbar"
-                          style="width: 80%"
-                          aria-valuenow="80"
-                          aria-valuemin="0"
-                          aria-valuemax="100"
-                        ></div>
-                      </div>
-                      <small>Website Markup</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div
-                          class="progress-bar"
-                          role="progressbar"
-                          style="width: 72%"
-                          aria-valuenow="72"
-                          aria-valuemin="0"
-                          aria-valuemax="100"
-                        ></div>
-                      </div>
-                      <small>One Page</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div
-                          class="progress-bar"
-                          role="progressbar"
-                          style="width: 89%"
-                          aria-valuenow="89"
-                          aria-valuemin="0"
-                          aria-valuemax="100"
-                        ></div>
-                      </div>
-                      <small>Mobile Template</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div
-                          class="progress-bar"
-                          role="progressbar"
-                          style="width: 55%"
-                          aria-valuenow="55"
-                          aria-valuemin="0"
-                          aria-valuemax="100"
-                        ></div>
-                      </div>
-                      <small>Backend API</small>
-                      <div class="progress mb-3" style="height: 5px">
-                        <div
-                          class="progress-bar"
-                          role="progressbar"
-                          style="width: 66%"
-                          aria-valuenow="66"
-                          aria-valuemin="0"
-                          aria-valuemax="100"
-                        ></div>
-                      </div>
+                      <ul>
+                        @foreach ($projects as $project)
+                          <li>
+                            <small>{{ $project->project_name }}</small>
+                          </li>
+                        @endforeach
+                      </ul>
                     </div>
                   </div>
                 </div>
