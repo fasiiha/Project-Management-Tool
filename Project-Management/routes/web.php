@@ -7,7 +7,6 @@ Route::get('/', function () {
 });
 
 Route::post('/create', 'App\Http\Controllers\TaskCOntroller@store');
-Route::get('/task', 'App\Http\Controllers\TaskCOntroller@index');
 
 Route::middleware([
     'auth:sanctum',
@@ -34,7 +33,7 @@ Route::get("logout",function() {
 Route::post('projectdata','App\Http\Controllers\TaskCOntroller@viewproject');
 Route::post('login','App\Http\Controllers\TaskCOntroller@login');
 Route::post('signup','App\Http\Controllers\TaskCOntroller@signup');
-Route::post('/complete','App\Http\Controllers\TaskCOntroller@complete');
+Route::post('complete','App\Http\Controllers\TaskCOntroller@complete');
 Route::post('projects','App\Http\Controllers\TaskCOntroller@projects');
 
 Route::get('/home', 'App\Http\Controllers\SidebarController@home_index')->name('Home');
