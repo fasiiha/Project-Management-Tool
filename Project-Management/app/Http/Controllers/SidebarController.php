@@ -13,7 +13,7 @@ class SidebarController extends Controller
         return view('activity');
     }
     public function discussion_index(){
-        return view('dashboard');
+        return view('chat');
     }
     public function calender_index(){
         return view('calendar');

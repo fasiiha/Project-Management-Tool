@@ -1,7 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Chat Laravel Pusher | Edlin App</title>
+@extends('layouts.layout') 
+@section('content') 
+  <title>Discussion</title>
   <link rel="icon" href="https://assets.edlin.app/favicon/favicon.ico"/>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,17 +12,14 @@
   <!-- CSS -->
   <link rel="stylesheet" href="{{asset('css/chat.css')}}">
   <!-- End CSS -->
-
-</head>
-
-<body>
 <div class="chat">
 
   <!-- Header -->
   <div class="top">
-    <img src="https://assets.edlin.app/images/rossedlin/03/rossedlin-03-100.jpg" alt="Avatar">
+    
     <div>
-      <p>Ross Edlin</p>
+      <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" height="50px" alt="Avatar">
+      <p>User</p>
       <small>Online</small>
     </div>
   </div>
@@ -32,10 +28,8 @@
   <!-- Chat -->
   <div class="messages">
     @include('receive', ['message' => "Hey! What's up!  👋"])
-    @include('receive', ['message' => "Ask a friend to open this link and you can chat with them!"])
   </div>
   <!-- End Chat -->
-
   <!-- Footer -->
   <div class="bottom">
     <form>
@@ -86,4 +80,4 @@
   });
 
 </script>
-</html>
+@endsection

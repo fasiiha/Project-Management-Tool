@@ -1,3 +1,15 @@
+<?php 
+session_start();
+
+if(isset($_SESSION['email'])) {
+
+}
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,11 +42,10 @@
         <div class="cont">
             <div class="form sign-in" style="display: flex; flex-direction: column; align-items: center;">
                 <h2>Login</h2>
-                <form onsubmit="return validate()" action="login" method="POST">
-                    @csrf
+                <form onsubmit="return validate()" action="Home.php" method="post">
                     <label>
                         <span>Email</span>
-                        <input type="text" name="email" >
+                        <input type="email" name="email" >
                     </label>
                     <label>
                         <span>Password</span>
@@ -61,8 +72,7 @@
                 </div>
                 <div class="form sign-up" style="display: flex; flex-direction: column; align-items: center;">
                     <h2>Create your Account</h2>
-                    <form onsubmit="return validate()" action="signup" method="POST">
-                        @csrf
+                    <form onsubmit="return validate()" action="Home.php" method="post">
                         <div>
                             <label>
                                 <span>Name</span>
@@ -84,6 +94,7 @@
                             </label>
                         </div>
                         <p id="password">Password must be alphanumeric (@,- and _ also included) and be 8-20 characters</p>
+    
                         <button type="submit">Sign Up</button>
                     </form>
                 </div>
@@ -117,6 +128,28 @@
             }
         </script>
     
+        <?php
+             session_start();
+
+             if(isset($_SESSION['email'])) {
+                header("Location: Home.php");
+                exit();
+             }
+
+             if($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $email = $_POST['email'];
+                $password = $_POST['password'];
+
+                if($email === 'user@gmail.com' && $password === 'pass') {
+                    $_SESSION['email'] = $email;
+                    header('Location: Home.php');
+                    exit();
+                }
+                else {
+                    $error_message = "Invalid email or pass";
+                }
+             }
+        ?>
     </main>
 </body>
 

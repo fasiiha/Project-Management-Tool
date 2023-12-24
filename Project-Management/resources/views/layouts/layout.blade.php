@@ -28,7 +28,6 @@
         <a href="{{ route('Task') }}"> <i class="zmdi zmdi-settings"></i> Tasks </a>
         <a href="{{ route('Setting') }}"> <i class="zmdi zmdi-comment-more"></i> Settings </a>
         <a href="{{ route('Profile') }}"> <i class="zmdi zmdi-comment-more"></i> Profile </a>
-        <a href="\logout"> <i class="zmdi zmdi-comment-more"></i> Profile </a>
         </div>
     </div>
     <div class="content">

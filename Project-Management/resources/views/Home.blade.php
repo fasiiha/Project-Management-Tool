@@ -16,7 +16,6 @@
       <div class="row">
         <div class="col-12 mt-3 mb-1">
           <h4 class="text-uppercase">Dashboard Overview</h4>
-          <h4>Hello, {{session('username')}}</h4>
           <p>Summary</p>
         </div>
       </div>
