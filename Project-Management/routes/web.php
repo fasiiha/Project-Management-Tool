@@ -31,6 +31,7 @@ Route::get("logout",function() {
     return redirect('login');
 });
 
+Route::post('projectdata','App\Http\Controllers\TaskCOntroller@viewproject');
 Route::post('login','App\Http\Controllers\TaskCOntroller@login');
 Route::post('signup','App\Http\Controllers\TaskCOntroller@signup');
 Route::post('/complete','App\Http\Controllers\TaskCOntroller@complete');

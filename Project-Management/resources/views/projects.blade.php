@@ -8,9 +8,19 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-wrap align-items-center justify-content-between breadcrumb-content">
-                                <h5>Your Projects</h5>
+                                <div>
+                                    <h4>Hello, {{session('username')}}</h4>
+                                    <h5>Your Projects</h5>
+                                </div>
                                 <div class="d-flex flex-wrap align-items-center">
-                                    
+                                    <div class="dropdown dropdown-project mr-3">
+                                        <div class="d-flex align-items-center" id="calchart">
+                                            <select name="cal_type">
+                                                <option>In Progress</option>
+                                                <option>Priority</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                     <a href="#" class="btn" data-target="#collapseEdit" data-toggle="modal">New Project</a>
                                 </div>
                             </div>
@@ -26,8 +36,12 @@
                                     <div class="col-sm-8">
                                         <div class="d-flex align-items-center">
                                             <div class="ml-3">
-                                                <a href="#" style="color: white;"><h5>{{ $project->project_name }}</h5></a>
-                                                
+                                                <form action="projectdata" method="POST">
+                                                    @csrf
+                                                    <div class="media align-items-center mt-md-0 mt-3">
+                                                        <input type="submit" value="{{ $project->project_name }}" name='data'>
+                                                    </div>
+                                                </form>
                                                 <p class="mb-0">{{ $project->category }}</p>
                                             </div>
                                         </div>
@@ -40,8 +54,6 @@
                 </div>
             </div>
         </div>
-
-    
 
         <div class="modal fade bd-example-modal-lg" role="dialog" aria-modal="true" id="collapseEdit">
             <div class="modal-dialog  modal-dialog-centered modal-lg" role="document">
@@ -60,7 +72,7 @@
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-group mb-3">
-                                            <label for="exampleInputText2" class="h5">Categories *</label>
+                                            <label for="exampleInputText2" class="h5">Category</label>
                                             <select name="category" class=" form-control" data-style="py-0">
                                                 <option>Category</option>
                                                 <option>Android</option>

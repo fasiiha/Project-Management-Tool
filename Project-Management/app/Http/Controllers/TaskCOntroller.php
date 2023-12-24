@@ -68,19 +68,15 @@ class TaskCOntroller extends Controller
         $tasks->longdesc = $request->input('desc');
         $tasks->save();
 
-        // $request->session()->put("username",$name);
         return redirect('/project');
     }
 
-    public function index(Request $request) {
-        $username = $request->session()->get("username");
-        $tasks = DB::select("select * from tasks where username = '$username'");
-        return view('tasks',['tasks' => $tasks]);
-    }
 
-    public function index1(Request $request) {
+    public function viewproject(Request $request) {
         $username = $request->session()->get("username");
-        $projects = DB::select("select * from projects where username = '$username'");
-        return view('projects',['projects' => $projects]);
+        $data = $request->input('data');
+        $projects = DB::select("select * from projects where username = '$username' and project_name = '$data'");
+        return view('projectdata',['projects' => $projects]);
     }
+    
 }
