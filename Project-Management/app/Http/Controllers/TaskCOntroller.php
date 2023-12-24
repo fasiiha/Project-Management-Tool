@@ -84,7 +84,6 @@ class TaskCOntroller extends Controller
         return redirect('/project');
     }
 
-
     public function viewproject(Request $request) {
         $username = $request->session()->get("username");
         $data = $request->input('data');
