@@ -1,5 +1,6 @@
 @extends('layouts.layout')
 @section('content')
+
     <title>Project</title>
     <link rel="stylesheet" href="{{ asset('css/calendar.css') }}">
     <div class="container-fluid h-100">
@@ -60,7 +61,7 @@
                     </div>
 
                 </div>
-                <div class="col-lg-12">
+                {{-- <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
                             <div class="row">
@@ -117,12 +118,12 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         @endforeach
-    </div>
-    </div>
-    <div class="modal fade" role="dialog" aria-modal="true" id="new-create-modal">
+    
+    
+    {{-- <div class="modal fade" role="dialog" aria-modal="true" id="new-create-modal">
         <div class="modal-dialog  modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header d-block text-center pb-3 border-bttom">
@@ -170,13 +171,10 @@
                     </div>
                 </div>
             </div>
-
-            {{-- @else
-            <p>No projects found.</p>
-            @endif --}}
         </div>
+    </div> --}}
 
-        <div class="modal fade" role="dialog" aria-modal="true" id="new-create-modal">
+        {{-- <div class="modal fade" role="dialog" aria-modal="true" id="new-create-modal">
             <div class="modal-dialog  modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header d-block text-center pb-3 border-bttom">
@@ -225,7 +223,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <div class="modal fade bd-example-modal-lg" role="dialog" aria-modal="true" id="collapseEdit">
             <div class="modal-dialog  modal-dialog-centered modal-lg" role="document">
@@ -233,14 +231,13 @@
                     <div class="card card-list task-card">
 
                         <div class="card-body">
-                            <form method="POST" action="/newproject">
+                            <form method="POST"  action="/pro">
                                 @csrf
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group mb-3 ">
                                             <label for="exampleInputText2" class="h5">Project Name</label>
-                                            <input name="project_name" text" class="form-control bg-white"
-                                                placeholder="Enter Project Name">
+                                            <input name="project_name" type="text" class="form-control bg-white" placeholder="Enter Project Name">
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
@@ -314,7 +311,7 @@
 
                                     </div>
                                 </div> --}}
-                                </div>
+                                
                                 <div class="card mb-3">
                                     <div class="card-body">
                                         <div class="row justify-content-center">
@@ -343,7 +340,8 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="d-flex flex-wrap align-items-ceter justify-content-center mt-2">
-                                        <input type="submit"Submit>
+                                        <input type="submit" class="btn btn-primary mr-3" value="Submit">
+
                                         <div class="btn btn-primary" data-dismiss="modal">Cancel</div>
                                     </div>
                                 </div>
@@ -352,4 +350,7 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
         @endsection

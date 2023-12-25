@@ -12,7 +12,7 @@ class ProjectController extends Controller
         // dd($request->all());
         $project = new Project;
         $project->project_name = $request->input('project_name');
-        $project->project_owner = $request->input('project_owner');
+        $project->project_owner = "nkdjkdn";
         $project->description = $request->input('description');
         $project->members = $request->input('members');
         $project->status = $request->input('status');
