@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\DB;
 
 class TaskCOntroller extends Controller
 {
-    public function login(Request $request) {
+    public function login(Request $request)
+    {
         $email = $request->input('email');
         $pass = $request->input('pass');
 
@@ -18,7 +19,7 @@ class TaskCOntroller extends Controller
             echo '<script>alert("Enter complete data")</script>';
             return view("login");
         }
-        
+
         $result = DB::select("SELECT username FROM user WHERE email = '$email' and password = '$pass'");
 
         // Check if there's a result
@@ -34,12 +35,13 @@ class TaskCOntroller extends Controller
             // echo "No result found for task_name: $data";
         }
 
-        $request->session()->put("username",$name);
+        $request->session()->put("username", $name);
         session(['username' => $name]);
         return redirect("home");
     }
 
-    public function signup(Request $request) {
+    public function signup(Request $request)
+    {
         $user = new User;
         $email = $request->input('email2');
 
@@ -48,30 +50,33 @@ class TaskCOntroller extends Controller
             echo '<script>alert("User already exists")</script>';
             return view("login");
         }
-        
+
         $user->username = $request->input('name');
         $user->email = $request->input('email2');
         $user->password = $request->input('password');
         $user->save();
 
-        $request->session()->put("username",$request->input('name'));
+        $request->session()->put("username", $request->input('name'));
         return redirect('home');
     }
 
     public function store(Request $request)
-{
-    $task = new Task;
-    $task->name = $request->input('name');
-    $task->description = $request->input('description');
-    $task->project_id = 1;
-    // $request->input('project_id');
-    $task->status = $request->input('status');
-    $task->due_date = $request->input('due_date');
-    // $task->time = $request->input('time');
-    $task->save();
-    $tasks = Task::all();
-    return view('tasks', ['tasks' => $tasks]);
-}
+    {
+        if ($request->isMethod('post')) {
+            $task = new Task;
+            $task->name = $request->input('name');
+            $task->description = $request->input('description');
+            $task->project_id = 1;
+            // $request->input('project_id');
+            $task->status = $request->input('status');
+            $task->due_date = $request->input('due_date');
+            // $task->time = $request->input('time');
+            $task->save();
+            return redirect()->route('home');
+        }
+        $tasks = Task::all();
+        return view('tasks', ['tasks' => $tasks]);
+    }
 
 
 
@@ -82,7 +87,7 @@ class TaskCOntroller extends Controller
 
         $project->name = $request->input('name');
         $project->description = $request->input('desc');
-        $project->status = 'active'; 
+        $project->status = 'active';
         $project->due_date = $request->input('due_date');
         $project->time = $request->input('time');
         // Add other fields as needed
@@ -98,5 +103,4 @@ class TaskCOntroller extends Controller
         $projects = DB::select("SELECT * FROM projects WHERE username = '$username' AND name = '$data'");
         return view('projectdata', ['projects' => $projects]);
     }
-    
 }

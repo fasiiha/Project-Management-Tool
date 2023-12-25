@@ -10,14 +10,12 @@ class Project extends Model
     
     public function scopeActiveProject($query)
     {
-        // return $query->where('status', 'active');
-        return $query->count();
+        return $query->where('status', 'active')->count();
     }
 
     public function scopeCompletedProject($query)
     {
-        // return $query->where('status', 'completed');
-        return $query->count();
+        return $query->where('status', 'completed')->count();
     }
 
     public function scopeTotalProject($query)

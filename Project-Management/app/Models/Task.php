@@ -18,20 +18,17 @@ class Task extends Model
     ];
     public function scopePendingTask($query)
     {
-        // return $query->where('status', 'pending');
-        return $query->count();
+        return $query->where('status', 'pending')->count(); 
     }
 
     public function scopeOverdue($query)
     {
-        // return $query->where('due_date', '<', now())->where('status', '!=', 'completed');
-        return $query->count();
+        return $query->where('due_date', '<', now())->where('status', '!=', 'completed')->count();
     }
 
     public function scopeUrgentTask($query)
     {
-        // return $query->where('priority', 'urgent');
-        return $query->count();
+        return $query->where('priority', 'urgent')->count();
     }
 
     public function scopeTotalTask($query)
