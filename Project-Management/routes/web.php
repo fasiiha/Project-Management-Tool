@@ -59,4 +59,4 @@ Route::post('/feed', [FeedController::class, 'postContent'])->name('feed.postCon
 Route::post('/feed/{feedItem}/comment', [FeedController::class, 'postComment'])->name('feed.postComment');
 
 
-// Route::get('home', [App\Http\Controllers\DashboardController::class, 'index']);
+Route::get('home', [App\Http\Controllers\DashboardController::class, 'index']);

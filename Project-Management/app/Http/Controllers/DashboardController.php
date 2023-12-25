@@ -9,13 +9,23 @@ use App\Models\Task;
 class DashboardController extends Controller
 {
     public function index(){
-        $totalProject = Project::count();
-        $totalTask = Task::count();
-        $ActiveProject = Project::count();
-        $CompletedProject = Project::count();
-        $PendingTask = Task::count();
-        $Overdue = Task::count();
-        $UrgentTask = Task::count();
-        return view('home', compact('ActiveProject', 'CompletedProject', 'PendingTask', 'totalProject', 'totalTask', 'Overdue', 'UrgentTask'));
+        $activeProjects = Project::activeProject()->get();
+        $completedProjects = Project::completedProject()->get();
+        $totalProjects = Project::totalProject();
+        $pendingTasks = Task::pendingTask()->get();
+        $overdueTasks = Task::overdue()->get();
+        $urgentTasks = Task::urgentTask()->get();
+        $totalTasks = Task::totalTask();
+
+        // Pass data to the view
+        return view('home', [
+            'activeProjects' => $activeProjects,
+            'completedProjects' => $completedProjects,
+            'totalProjects' => $totalProjects,
+            'pendingTasks' => $pendingTasks,
+            'overdueTasks' => $overdueTasks,
+            'urgentTasks' => $urgentTasks,
+            'totalTasks' => $totalTasks,
+        ]);
     }
 }

@@ -29,7 +29,7 @@
               <div class="card-body">
                 <div class="media d-flex">
                   <div class="media-body text-left">
-                    <h3 class="danger">{{ $ActiveProject }}</h3>
+                    <h3 class="danger">{{ $activeProjects}}</h3>
                     <span>Active Projects</span>
                   </div>
                   <div class="align-self-center">
@@ -48,7 +48,7 @@
               <div class="card-body">
                 <div class="media d-flex">
                   <div class="media-body text-left">
-                    <h3 class="success">{{ $CompletedProject }}</h3>
+                    <h3 class="success">{{ $completedProjects }}</h3>
                     <a href="{{ url('task')}}" class="text-black">view</a>
                     <span>Completed Projects</span>
                   </div>
@@ -82,7 +82,7 @@
                       class="icon-pencil primary font-large-2 float-left"></i>
                   </div>
                   <div class="media-body text-right">
-                    <h3>{{ $PendingTask }}</h3>
+                    <h3>{{ $pendingTasks }}</h3>
                     <span>Pending Tasks</span>
                   </div>
                 </div>
@@ -97,7 +97,7 @@
               <div class="card-body">
                 <div class="media d-flex">
                   <div class="media-body text-left">
-                    <h3 class="primary">{{ $Overdue }}</h3>
+                    <h3 class="primary">{{ $overdueTasks }}</h3>
                     <span>Overdue Tasks</span>
                   </div>
                   <div class="align-self-center">
@@ -126,7 +126,7 @@
               <div class="card-body">
                 <div class="media d-flex">
                   <div class="media-body text-left">
-                    <h3 class="primary">{{ $UrgentTask }}</h3>
+                    <h3 class="primary">{{ $urgentTasks }}</h3>
                     <span>Urgent Tasks</span>
                   </div>
                   <div class="align-self-center">
@@ -149,7 +149,7 @@
                       class="icon-speech warning font-large-2 float-left"></i>
                   </div>
                   <div class="media-body text-right">
-                    <h3>{{ $totalProject }}</h3>
+                    <h3>{{ $totalProjects }}</h3>
                     <span>Total Project</span>
                   </div>
                 </div>
@@ -168,7 +168,7 @@
                       class="icon-speech warning font-large-2 float-left"></i>
                   </div>
                   <div class="media-body text-right">
-                    <h3>{{ $totalTask }}</h3>
+                    <h3>{{ $totalTasks }}</h3>
                     <span>Total Task</span>
                   </div>
                 </div>
