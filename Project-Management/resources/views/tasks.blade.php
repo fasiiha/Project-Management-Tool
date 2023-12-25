@@ -40,6 +40,11 @@
                                             <a href="#" data-target="#collapseEdit" data-toggle="modal"
                                                 class="btn bg-secondary-light mr-3">Design</a>
                                         </div>
+                                        <form method="post" action="{{ route('tasks.delete', ['id' => $task->id]) }}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <input type="submit" class="btn" value="Delete" name="delete" style="font-size: 80%; margin-bottom: 5%;">
+                                        </form>
                                     </div>
                                 </div>
                             </div>

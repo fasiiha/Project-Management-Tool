@@ -32,8 +32,11 @@ class SidebarController extends Controller
         $tasks = DB::select("select * from tasks where username = '$username'");
         return view('tasks',['tasks' => $tasks]);
     }
-    public function setting_index(){
-        return view('settings');
+    // public function setting_index(){
+    //     return view('settings');
+    // }
+    public function delete_index(){
+        return view('deleteacc');
     }
     public function profile_index(Request $request){
         $username = $request->session()->get("username");

@@ -71,8 +71,24 @@ Route::get('home', [App\Http\Controllers\DashboardController::class, 'index'])->
 
 
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\SidebarController;
 
 // Route::get('/search', [SearchController::class, 'index'])->name('search');
 Route::get('/search', [SearchController::class, 'search']);
+Route::post('/searchresult', [SearchController::class, 'search']);
+
+Route::delete('/projects/delete/{id}', 'App\Http\Controllers\ProjectController@delete')->name('projects.delete');
+Route::delete('/tasks/delete/{id}', 'App\Http\Controllers\TaskCOntroller@delete')->name('tasks.delete');
+Route::delete('/user/delete/{username}', 'App\Http\Controllers\Controller@delete')->name('users.delete');
+
+
+Route::get('/delete', 'App\Http\Controllers\SidebarController@delete_index')->name('Delete');
+// Route::get('/delete', [SidebarController::class, 'delete_index']);
+Route::post('/projects-details', 'App\Http\Controllers\ProjectController@details')->name('projects.details');
+
+// Route::get('/delete', [SidebarController::class, 'delete_index'])->name('delete.index');
+// Route::delete('/delete', [SidebarController::class, 'delete'])->name('user.delete');
+
+
 
 

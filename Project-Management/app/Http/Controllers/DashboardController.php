@@ -28,6 +28,7 @@ class DashboardController extends Controller
         // $task->time = $request->input('time');
         $task->save();
         $tasks = Task::all();
+        $projects = Project::all();
 
         // Pass data to the view
         return view('home', [
@@ -38,7 +39,8 @@ class DashboardController extends Controller
             'overdueTasks' => $overdueTasks,
             'urgentTasks' => $urgentTasks,
             'totalTasks' => $totalTasks,
-            'tasks' => $tasks
+            'tasks' => $tasks,
+            'projects' => $projects
         ]);
     }
 }

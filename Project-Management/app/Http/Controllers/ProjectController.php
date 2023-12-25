@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Task;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProjectController extends Controller
 {
@@ -26,5 +28,19 @@ class ProjectController extends Controller
         $projects = Project::all();
         $tasks = Task::all();
         return view('projects', ['projects' => $projects, 'tasks' => $tasks]);
+    }
+
+    public function delete($id)
+    {
+        DB::table('projects')->where('id', $id)->delete();
+        return redirect()->route('home')->with('success', 'Project deleted successfully');
+    }
+
+    public function details(Request $request)
+    {
+        $projectId = $request->input('project_id');
+        $projectDetails = DB::table('projects')->where('id', $projectId)->first();
+
+        return view('projectdata', ['projectDetails' => $projectDetails]);
     }
 }

@@ -103,4 +103,10 @@ class TaskCOntroller extends Controller
         $projects = Project::all();
         return view('projectdata', ['projects' => $projects]);
     }
+
+    public function delete($id)
+    {
+        DB::table('tasks')->where('id', $id)->delete();
+        return redirect()->route('home')->with('success', 'Project deleted successfully');
+    }
 }

@@ -40,16 +40,22 @@
 
 
                                 <div class="d-flex align-items-center">
-                                    <div class="ml-3">
-                                        <form action="projectdata" method="POST">
-                                            @csrf
-                                            <div>
-                                                <input type="submit" class="btn" value="{{ $project->project_name }}"
-                                                    name='data' style="font-size: 125%; margin-bottom: 5%;">
-                                            </div>
-                                        </form>
-                                        <h5>{{ $project->name }}</h5>
-                                    </div>
+
+                                    <form action="{{ route('projects.details') }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="project_id" value="{{ $project->id }}">
+                                        <div>
+                                            <input type="submit" class="btn" value="Details" name='details' style="font-size: 80%; margin-bottom: 5%;">
+                                        </div>
+                                    </form>
+                                    
+                                    <form method="post" action="{{ route('projects.delete', ['id' => $project->id]) }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input type="submit" class="btn" value="Delete" name="delete" style="font-size: 80%; margin-bottom: 5%;">
+                                    </form>
+                                    
+
                                 </div>
 
                             </div>

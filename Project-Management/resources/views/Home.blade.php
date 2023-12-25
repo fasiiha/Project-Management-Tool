@@ -26,6 +26,7 @@
                     <p>Summary</p>
                 </div>
             </div>
+            
             <div class="row">
                 <div class="col-xl-3 col-sm-6 col-12">
                     <div class="card">
@@ -185,9 +186,9 @@
 
             <div class="container">
                 <p>Project Overview:</p>
-                @if (!empty($tasks))
+                @if (!empty($projects))
                     <div class="row">
-                        @foreach ($tasks as $task)
+                        @foreach ($projects as $projects)
                             <div class="col-lg-4">
                                 <div class="card card-margin">
                                     <div class="card-body pt-1">
@@ -195,22 +196,25 @@
                                             <div class="widget-49-title-wrapper">
                                                 <div class="widget-49-date-primary">
                                                     <!-- <span class="widget-49-date-day">09</span> -->
-                                                    <span class="widget-49-date-month">{{ $task->status }}</span>
+                                                    <span class="widget-49-date-month">{{ $projects->status }}</span>
                                                 </div>
                                                 <div class="widget-49-meeting-info">
-                                                    <span class="widget-49-pro-title">Project {{ $task->id }}: </span>
+                                                    <span class="widget-49-pro-title">Project {{ $projects->id }}: </span>
                                                 </div>
                                             </div>
                                             <ol class="widget-49-meeting-points">
                                                 <p class="widget-49-meeting-item">
-                                                    Description: {{ $task->description }}
+                                                    Description: {{ $projects->description }}
                                                 </p>
                                             </ol>
                                             
-                                            <div class="widget-49-meeting-action">
-                                                <a href="#" class="btn btn-sm btn-flash-border-warning">View
-                                                    Details</a>
-                                            </div>
+                                            <form action="{{ route('projects.details') }}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="project_id" value="{{ $projects->id }}">
+                                                <div>
+                                                    <input type="submit" class="btn" value="Details" name='details' style="font-size: 80%; margin-bottom: 5%;">
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -218,7 +222,7 @@
                         @endforeach
                     </div>
                 @else
-                    <p>No tasks available.</p>
+                    <p>No Projects available.</p>
                 @endif
 
             </div>

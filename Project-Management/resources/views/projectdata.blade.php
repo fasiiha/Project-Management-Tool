@@ -12,16 +12,7 @@
             </div>
             <div class="row">
                 <div class="col-12 mt-3 mb-1" style="display: flex;">
-                    <h4 style="color: white;  margin-right: 5%;">Project Name</h4>
-                    @if (is_array($projects) && count($projects) > 0)
-                        @foreach ($projects as $project)
-                            <label for="projectname">
-                                <h5 style="color: white; margin-top: 1.5%;">{{ $projects->project_name }}</h5>
-                            </label>
-                        @endforeach
-                    @else
-                        <p>No projects found.</p>
-                    @endif
+                    <h4 style="color: white;  margin-right: 5%;">Project Name: {{ $projectDetails->project_name }}</h4>
                 </div>
             </div>
             <div class="row align-items-center">
@@ -51,7 +42,7 @@
                                     </div>
                                     <div class="media-body text-right">
                                         <h3>Description</h3>
-                                        {{-- <span>{{ $projects->longdesc }}</span> --}}
+                                        <span>{{ $projectDetails->description }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -67,8 +58,8 @@
                                         <i class="icon-graph success font-large-2 float-left"></i>
                                     </div>
                                     <div class="media-body text-right">
-                                        <h3>Category</h3>
-                                        {{-- <span>{{ $projects->category }}</span> --}}
+                                        <h3>Status</h3>
+                                        <span>{{ $projectDetails->status }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -103,7 +94,7 @@
                                 <div class="media d-flex">
                                     <div class="media-body text-left">
                                         <h3 class="danger">Members</h3>
-                                        {{-- <span>{{ $projects->members }}</span> --}}
+                                        <span>{{ $projectDetails->members }}</span>
                                     </div>
                                     <div class="align-self-center">
                                         <i class="icon-rocket danger font-large-2 float-right"></i>
