@@ -22,6 +22,7 @@
         <div class="nav">
             <a href="home"> <i class="zmdi zmdi-view-dashboard"></i> Home </a>
             <a href="{{ route('Activity') }}"> <i class="zmdi zmdi-link"></i> Activity </a>
+            <a href="search"> <i class="zmdi zmdi-link"></i> Search </a>
             <a href="{{ route('Discussion') }}"><i class="zmdi zmdi-widgets"></i> Discussion </a>
             <a href="{{ route('Calender') }}"> <i class="zmdi zmdi-calendar"></i> Calender </a>
             <a href="projects"> <i class="zmdi zmdi-info-outline"></i> Projects </a>

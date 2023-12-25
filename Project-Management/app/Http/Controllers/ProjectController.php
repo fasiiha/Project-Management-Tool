@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Task;
 use App\Models\Project;
 use Illuminate\Http\Request;
 
@@ -16,7 +16,7 @@ class ProjectController extends Controller
             $project->description = $request->input('description');
             $project->members = $request->input('members');
             $project->status = $request->input('status');
-            $project->attachments = "dkasdkl";
+            $project->attachments = $request->input('attachments');
             $project->start_date = $request->input('start_date');
             $project->due_date = $request->input('due_date');
             $project->save();
@@ -24,6 +24,7 @@ class ProjectController extends Controller
             return redirect()->route('home');
         }
         $projects = Project::all();
-        return view('projects', ['projects' => $projects]);
+        $tasks = Task::all();
+        return view('projects', ['projects' => $projects, 'tasks' => $tasks]);
     }
 }

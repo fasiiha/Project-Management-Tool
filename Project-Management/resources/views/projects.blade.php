@@ -1,6 +1,5 @@
 @extends('layouts.layout')
 @section('content')
-
     <title>Project</title>
     <link rel="stylesheet" href="{{ asset('css/calendar.css') }}">
     <div class="container-fluid h-100">
@@ -52,10 +51,7 @@
                                         <h5>{{ $project->name }}</h5>
                                     </div>
                                 </div>
-                                <div class="col-sm-4 text-sm-right mt-3 mt-sm-0">
 
-                                    <a class="btn btn-white text-secondary link-shadow">Medium</a>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -121,11 +117,11 @@
                 </div> --}}
             </div>
         @endforeach
-  
 
-    
-    
-    {{-- <div class="modal fade" role="dialog" aria-modal="true" id="new-create-modal">
+
+
+
+        {{-- <div class="modal fade" role="dialog" aria-modal="true" id="new-create-modal">
         <div class="modal-dialog  modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header d-block text-center pb-3 border-bttom">
@@ -233,13 +229,14 @@
                     <div class="card card-list task-card">
 
                         <div class="card-body">
-                            <form method="POST"  action="/pro">
+                            <form method="POST" action="/pro">
                                 @csrf
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group mb-3 ">
                                             <label for="exampleInputText2" class="h5">Project Name</label>
-                                            <input name="project_name" type="text" class="form-control bg-white" placeholder="Enter Project Name">
+                                            <input name="project_name" type="text" class="form-control bg-white"
+                                                placeholder="Enter Project Name">
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
@@ -313,40 +310,40 @@
 
                                     </div>
                                 </div> --}}
-                                
-                                <div class="card mb-3">
-                                    <div class="card-body">
-                                        <div class="row justify-content-center">
-                                            <div class="col-lg-6 form-group mb-0">
-                                                <label for="exampleInputText01" class="h5">Attachments</label>
-                                                <div class="custom-file">
-                                                    <input name="attachments" type="file" class="custom-file-input"
-                                                        id="inputGroupFile002">
-                                                    <label class="custom-file-label" for="inputGroupFile002">Upload
-                                                        media</label>
+
+                                    <div class="card mb-3">
+                                        <div class="card-body">
+                                            <div class="row justify-content-center">
+                                                <div class="col-lg-6 form-group mb-0">
+                                                    <label for="exampleInputText01" class="h5">Attachments</label>
+                                                    <div class="custom-file">
+                                                        <input name="attachments" type="file" class="custom-file-input"
+                                                            id="inputGroupFile002">
+                                                        <label class="custom-file-label" for="inputGroupFile002">Upload
+                                                            media</label>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="form-group mb-3 ">
-                                                    <label for="exampleInputText2" class="h5">Status</label>
-                                                    <select name="status" class="form-control" data-style="py-0">
-                                                        <option>Active</option>
-                                                        <option>Completed</option>
-                                                        <option>Delayed</option>
-                                                        <option>Rejected</option>
-                                                    </select>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group mb-3 ">
+                                                        <label for="exampleInputText2" class="h5">Status</label>
+                                                        <select name="status" class="form-control" data-style="py-0">
+                                                            <option>Active</option>
+                                                            <option>Completed</option>
+                                                            <option>Delayed</option>
+                                                            <option>Rejected</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="d-flex flex-wrap align-items-ceter justify-content-center mt-2">
-                                        <input type="submit" class="btn btn-primary mr-3" value="Submit">
+                                    <div class="col-lg-12">
+                                        <div class="d-flex flex-wrap align-items-ceter justify-content-center mt-2">
+                                            <input type="submit" class="btn btn-primary mr-3" value="Submit">
 
-                                        <div class="btn btn-primary" data-dismiss="modal">Cancel</div>
+                                            <div class="btn btn-primary" data-dismiss="modal">Cancel</div>
+                                        </div>
                                     </div>
-                                </div>
                             </form>
                         </div>
                     </div>
@@ -354,5 +351,5 @@
             </div>
         </div>
     </div>
-</div>
-        @endsection
+    </div>
+@endsection

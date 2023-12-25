@@ -1,7 +1,7 @@
-@extends('layouts.layout') 
-@section('content') 
+@extends('layouts.layout')
+@section('content')
     <title>Project</title>
-    <link rel="stylesheet" href="{{asset('css/calendar.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/calendar.css') }}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <div class="container-fluid h-100">
         <section id="minimal-statistics">
@@ -13,11 +13,15 @@
             <div class="row">
                 <div class="col-12 mt-3 mb-1" style="display: flex;">
                     <h4 style="color: white;  margin-right: 5%;">Project Name</h4>
-                    <!-- @foreach ($projects as $project) -->
-                    <label for="projectname">
-                        <h5 style="color: white; margin-top: 1.5%;">{{ $project->project_name }}</h5>
-                    </label>
-                    <!-- @endforeach -->
+                    @if (is_array($projects) && count($projects) > 0)
+                        @foreach ($projects as $project)
+                            <label for="projectname">
+                                <h5 style="color: white; margin-top: 1.5%;">{{ $projects->project_name }}</h5>
+                            </label>
+                        @endforeach
+                    @else
+                        <p>No projects found.</p>
+                    @endif
                 </div>
             </div>
             <div class="row align-items-center">
@@ -47,7 +51,7 @@
                                     </div>
                                     <div class="media-body text-right">
                                         <h3>Description</h3>
-                                        <span>{{ $project->longdesc }}</span>
+                                        {{-- <span>{{ $projects->longdesc }}</span> --}}
                                     </div>
                                 </div>
                             </div>
@@ -64,14 +68,14 @@
                                     </div>
                                     <div class="media-body text-right">
                                         <h3>Category</h3>
-                                        <span>{{ $project->category }}</span>
+                                        {{-- <span>{{ $projects->category }}</span> --}}
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-xl-6 col-sm-6 col-12">
                     <div class="card">
                         <div class="card-content">
@@ -99,7 +103,7 @@
                                 <div class="media d-flex">
                                     <div class="media-body text-left">
                                         <h3 class="danger">Members</h3>
-                                        <span>{{ $project->members }}</span>
+                                        {{-- <span>{{ $projects->members }}</span> --}}
                                     </div>
                                     <div class="align-self-center">
                                         <i class="icon-rocket danger font-large-2 float-right"></i>
@@ -141,12 +145,10 @@
 
         const data = {
             labels: labels,
-            datasets: [
-                {
-                    data: itemData,
-                    backgroundColor: ['rgb(191, 109, 103)', 'rgb(103, 146, 191)']
-                }
-            ]
+            datasets: [{
+                data: itemData,
+                backgroundColor: ['rgb(191, 109, 103)', 'rgb(103, 146, 191)']
+            }]
         };
 
         const config = {
@@ -165,20 +167,18 @@
             },
         };
 
-        let tasks = ['tasks','issues','milestones']
+        let tasks = ['tasks', 'issues', 'milestones']
 
         const config2 = {
             type: 'horizontalBar',
             data: {
                 labels: tasks,
-                datasets: [
-                    {
-                        data: [16,4,2],
-                        backgroundColor: ['rgb(191, 109, 103)', 'rgb(103, 146, 191)','rgb(111, 113, 222)']
-                    }
-                ]
+                datasets: [{
+                    data: [16, 4, 2],
+                    backgroundColor: ['rgb(191, 109, 103)', 'rgb(103, 146, 191)', 'rgb(111, 113, 222)']
+                }]
             },
-            
+
         };
 
         const chart = new Chart(

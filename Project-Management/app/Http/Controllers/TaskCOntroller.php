@@ -100,7 +100,7 @@ class TaskCOntroller extends Controller
     {
         $username = $request->session()->get("username");
         $data = $request->input('data');
-        $projects = DB::select("SELECT * FROM projects WHERE username = '$username' AND name = '$data'");
+        $projects = Project::all();
         return view('projectdata', ['projects' => $projects]);
     }
 }

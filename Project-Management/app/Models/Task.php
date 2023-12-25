@@ -28,7 +28,7 @@ class Task extends Model
 
     public function scopeUrgentTask($query)
     {
-        return $query->where('priority', 'urgent')->count();
+        return $query->where('status', 'urgent')->count();
     }
 
     public function scopeTotalTask($query)

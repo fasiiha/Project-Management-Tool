@@ -68,3 +68,11 @@ Route::post('/feed/{feedItem}/comment', [FeedController::class, 'postComment'])-
 
 Route::get('home', [App\Http\Controllers\DashboardController::class, 'index'])->name('home');
 
+
+
+use App\Http\Controllers\SearchController;
+
+// Route::get('/search', [SearchController::class, 'index'])->name('search');
+Route::get('/search', [SearchController::class, 'search']);
+
+
