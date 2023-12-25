@@ -9,12 +9,12 @@ use App\Models\Task;
 class DashboardController extends Controller
 {
     public function index(){
-        $activeProjects = Project::activeProject()->get();
-        $completedProjects = Project::completedProject()->get();
+        $activeProjects = Project::activeProject();
+        $completedProjects = Project::completedProject();
         $totalProjects = Project::totalProject();
-        $pendingTasks = Task::pendingTask()->get();
-        $overdueTasks = Task::overdue()->get();
-        $urgentTasks = Task::urgentTask()->get();
+        $pendingTasks = Task::pendingTask();
+        $overdueTasks = Task::overdue();
+        $urgentTasks = Task::urgentTask();
         $totalTasks = Task::totalTask();
 
         // Pass data to the view

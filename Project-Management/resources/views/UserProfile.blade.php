@@ -31,7 +31,7 @@
                       width="150"
                     />
                     <div class="mt-3">
-                      <h4>{{ $user->username }}</h4>
+                      <h4>{{ $user->username ?? 'User not found'}}</h4>
                       <p class="text-secondary mb-1">Developer</p>
                       <p class="font-size-sm"></p>
                     </div>
@@ -66,21 +66,21 @@
                     <div class="col-sm-3">
                       <h6 class="mb-0">Full Name</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">{{ $user->username }}</div>
+                    <div class="col-sm-9 text-secondary">{{ $user->username ?? 'User not found' }}</div>
                   </div>
                   <hr />
                   <div class="row">
                     <div class="col-sm-3">
                       <h6 class="mb-0">Email</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">{{ $user->email }}</div>
+                    <div class="col-sm-9 text-secondary">{{ $user->email ?? 'User not found'}}</div>
                   </div>
                   <hr />
                   <div class="row">
                     <div class="col-sm-3">
                       <h6 class="mb-0">Password</h6>
                     </div>
-                    <div class="col-sm-9 text-secondary">{{ $user->password }}</div>
+                    <div class="col-sm-9 text-secondary">{{ $user->password ?? 'User not found'}}</div>
                   </div>
                   <hr />
                 </div>
@@ -96,7 +96,7 @@
                       <ul>
                         @foreach ($projects as $project)
                           <li>
-                            <small>{{ $project->project_name }}</small>
+                            <small>{{ $project->project_name ?? 'User not found'}}</small>
                           </li>
                         @endforeach
                       </ul>

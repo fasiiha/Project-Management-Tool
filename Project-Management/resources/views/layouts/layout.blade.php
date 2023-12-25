@@ -26,7 +26,7 @@
             <a href="{{ route('Calender') }}"> <i class="zmdi zmdi-calendar"></i> Calender </a>
             <a href="{{ route('Project') }}"> <i class="zmdi zmdi-info-outline"></i> Projects </a>
             <a href="{{ route('Member') }}"> <i class="zmdi zmdi-info-outline"></i> Team Members </a>
-            <a href="{{ route('Task') }}"> <i class="zmdi zmdi-settings"></i> Tasks </a>
+            <a href="tasks"> <i class="zmdi zmdi-settings"></i> Tasks </a>
             <a href="{{ route('Setting') }}"> <i class="zmdi zmdi-comment-more"></i> Settings </a>
             <a href="{{ route('Profile') }}"> <i class="zmdi zmdi-comment-more"></i> Profile </a>
             <a href="logout"> <i class="zmdi zmdi-comment-more"></i> Logout </a>

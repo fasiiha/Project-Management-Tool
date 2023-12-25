@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FeedController;
+use App\Http\Controllers\TaskCOntroller;
 
 Route::get('/', function () {
     return view('Home');
@@ -43,7 +45,8 @@ Route::get('/discussion', 'App\Http\Controllers\SidebarController@discussion_ind
 Route::get('/calender', 'App\Http\Controllers\SidebarController@calender_index')->name('Calender');
 Route::get('/project', 'App\Http\Controllers\SidebarController@project_index')->name('Project');
 Route::get('/team-members', 'App\Http\Controllers\SidebarController@member_index')->name('Member');
-Route::get('/task', 'App\Http\Controllers\SidebarController@task_index')->name('Task');
+Route::get('/tasks', [TaskCOntroller::class, 'store']);
+
 Route::get('/setting', 'App\Http\Controllers\SidebarController@setting_index')->name('Setting');
 Route::get('/profile', 'App\Http\Controllers\SidebarController@profile_index')->name('Profile');
 
@@ -52,7 +55,7 @@ Route::get('/chat', 'App\Http\Controllers\PusherController@index');
 Route::post('/broadcast', 'App\Http\Controllers\PusherController@broadcast');
 Route::post('/receive', 'App\Http\Controllers\PusherController@receive');
 
-use App\Http\Controllers\FeedController;
+
 
 Route::get('/feed', [FeedController::class, 'showFeed'])->name('feed.show');
 Route::post('/feed', [FeedController::class, 'postContent'])->name('feed.postContent');
@@ -60,3 +63,4 @@ Route::post('/feed/{feedItem}/comment', [FeedController::class, 'postComment'])-
 
 
 Route::get('home', [App\Http\Controllers\DashboardController::class, 'index']);
+

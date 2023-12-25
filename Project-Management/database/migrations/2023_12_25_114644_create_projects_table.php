@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFeedItemsTable extends Migration
+class CreateProjectsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateFeedItemsTable extends Migration
      */
     public function up()
 {
-    Schema::create('feed_items', function (Blueprint $table) {
+    Schema::create('projects', function (Blueprint $table) {
         $table->id();
-        $table->unsignedBigInteger('user_id');
-        $table->text('content');
+        $table->string('name');
+        $table->text('description')->nullable();
+        $table->enum('status', ['active', 'completed'])->default('active');
         $table->timestamps();
     });
 }
-
 
     /**
      * Reverse the migrations.
@@ -29,6 +29,6 @@ class CreateFeedItemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('feed_items');
+        Schema::dropIfExists('projects');
     }
 }

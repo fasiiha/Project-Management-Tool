@@ -1,8 +1,8 @@
-@extends('layouts.layout') 
-@section('content') 
+@extends('layouts.layout')
+@section('content')
 
-<title>Tasks</title>
-<link rel="stylesheet" href="{{asset('css/calendar.css')}}">
+    <title>Tasks</title>
+    <link rel="stylesheet" href="{{ asset('css/calendar.css') }}">
     <div class="container-fluid h-100">
         <div class="row justify-content-center h-100">
             <div class="col-lg-12">
@@ -11,45 +11,48 @@
                         <div class="d-flex flex-wrap align-items-center justify-content-between breadcrumb-content">
                             <h5>Your Task</h5>
                             <div class="d-flex flex-wrap align-items-center">
-                                
-                                <a href="#" class="btn" data-target="#new-create-modal" data-toggle="modal">New Task</a>
+
+                                <a href="#" class="btn" data-target="#new-create-modal" data-toggle="modal">New
+                                    Task</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                @foreach ($tasks as $task)
-                    <div class="col-lg-12">
-                        <div class="card card-widget task-card">
-                            <div class="card-body">
-                                <div class="d-flex flex-wrap align-items-center justify-content-between">
-                                    <div class="d-flex align-items-center">
-                                        <div class="custom-control custom-task custom-checkbox custom-control-inline">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck01">
-                                            <label class="custom-control-label" for="customCheck01"></label>
-                                        </div>
-                                        <div>
-                                            <h5 class="mb-2">{{ $task->task_name }}</h5>
-                                            <div class="media align-items-center">
-                                                <div class="btn bg-body mr-3"><i class="ri-align-justify mr-2"></i>5/10
-                                                </div>
+            @if (!empty($tasks))
+                <div class="row">
+                    @foreach ($tasks as $task)
+                        <div class="col-lg-12">
+                            <div class="card card-widget task-card">
+                                <div class="card-body">
+                                    <div class="d-flex flex-wrap align-items-center justify-content-between">
+                                        <div class="d-flex align-items-center">
+                                            <div class="custom-control custom-task custom-checkbox custom-control-inline">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck01">
+                                                <label class="custom-control-label" for="customCheck01"></label>
+                                            </div>
+                                            <div>
+                                                <h5 class="mb-2">{{ $task->name }}</h5>
+                                                <p>Status: {{ $task->status }} <br>Description: {{ $task->description }}<br>Due Date: {{ $task->due_date }}</p>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="media align-items-center mt-md-0 mt-3">
-                                        <a href="#" data-target="#collapseEdit" data-toggle="modal" class="btn bg-secondary-light mr-3">Design</a>
+                                        <div class="media align-items-center mt-md-0 mt-3">
+                                            <a href="#" data-target="#collapseEdit" data-toggle="modal"
+                                                class="btn bg-secondary-light mr-3">Design</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach   
-            </div>
+                    @endforeach
+                </div>
+            @else
+                <p>No tasks available.</p>
+            @endif
         </div>
     </div>
 
-    
+
     <div class="modal fade" role="dialog" aria-modal="true" id="new-create-modal">
         <div class="modal-dialog  modal-dialog-centered" role="document">
             <div class="modal-content" style="background-color: #232733 ;">
@@ -59,11 +62,19 @@
                 <div class="modal-body">
                     <form action="/create" method="POST">
                         @csrf
-                    <div class="row">
-                            <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-6">
                                 <div class="form-group mb-3">
                                     <label for="exampleInputText01" class="h5">Task Name</label>
-                                    <input name="name" type="text" class="form-control" id="exampleInputText01" placeholder="Task Name">
+                                    <input name="name" type="text" class="form-control" id="exampleInputText01"
+                                        placeholder="Task Name">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group mb-3">
+                                    <label for="exampleInputText01" class="h5">Project Name</label>
+                                    <input name="project_name" type="text" class="form-control" id="exampleInputText01"
+                                        placeholder="Project Name">
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -80,14 +91,27 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group mb-3">
+                                    <label for="exampleInputText2" class="h5">Status *</label>
+                                    <select name="status" class=" form-control" data-style="py-0">
+                                        <option>pending</option>
+                                        <option>completed</option>
+                                        <option>urgent</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group mb-3">
                                     <label for="exampleInputText004" class="h5">Due Dates*</label>
-                                    <input name="date" type="date" class="form-control" id="exampleInputText004" value="">
-                                </div>                        
+                                    <input name="due_date" type="date" class="form-control" id="exampleInputText004"
+                                        value="">
+                                </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group mb-3">
                                     <label for="exampleInputText07" class="h5">Assign Members*</label>
-                                    <input name="member" type="text" class="form-control" id="exampleInputText07">
+                                    <input name="description" type="text" class="form-control" id="exampleInputText07"
+                                        placeholder="Description">
                                 </div>
                             </div>
                             <div class="col-lg-12">
@@ -119,8 +143,7 @@
                     <div class="card-body">
                         <form action="/create" method="POST">
                             <div class="form-group mb-3 position-relative">
-                                <input type="text" class="form-control bg-white"
-                                    placeholder="Enter Task Name">
+                                <input type="text" class="form-control bg-white" placeholder="Enter Task Name">
                                 <a href="#" class="task-edit task-simple-edit text-body"><i
                                         class="ri-edit-box-line"></i></a>
                             </div>
@@ -142,7 +165,8 @@
                                             <div class="form-group mb-0">
                                                 <label for="exampleInputText4" class="h5">Due
                                                     Dates</label>
-                                                <input name="date" type="date" class="form-control" id="exampleInputText4" value="">
+                                                <input name="date" type="date" class="form-control"
+                                                    id="exampleInputText4" value="">
                                             </div>
                                         </div>
                                     </div>
@@ -159,7 +183,7 @@
                                                 Exercitation veniam consequat sunt nostrud amet.
                                             </p>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -187,7 +211,8 @@
                                                     <div class="custom-control custom-checkbox custom-control-inline mr-0">
                                                         <input type="checkbox" class="custom-control-input"
                                                             id="customCheck6">
-                                                        <label class="custom-control-label" for="customCheck6">Vector images
+                                                        <label class="custom-control-label" for="customCheck6">Vector
+                                                            images
                                                             of
                                                             small size.</label>
                                                     </div>
@@ -210,7 +235,8 @@
                                                     <div class="custom-control custom-checkbox custom-control-inline mr-0">
                                                         <input type="checkbox" class="custom-control-input"
                                                             id="customCheck9">
-                                                        <label class="custom-control-label" for="customCheck9">Vector images
+                                                        <label class="custom-control-label" for="customCheck9">Vector
+                                                            images
                                                             of
                                                             small size..</label>
                                                     </div>
