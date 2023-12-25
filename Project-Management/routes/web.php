@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FeedController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TaskCOntroller;
 
 Route::get('/', function () {
@@ -9,6 +10,7 @@ Route::get('/', function () {
 });
 
 Route::post('/create', 'App\Http\Controllers\TaskCOntroller@store');
+Route::post('/newproject', 'App\Http\Controllers\ProjectController@store');
 
 Route::middleware([
     'auth:sanctum',
@@ -37,15 +39,16 @@ Route::post('projectdata','App\Http\Controllers\TaskCOntroller@viewproject');
 Route::post('login','App\Http\Controllers\TaskCOntroller@login');
 Route::post('signup','App\Http\Controllers\TaskCOntroller@signup');
 Route::post('complete','App\Http\Controllers\TaskCOntroller@complete');
-Route::post('projects','App\Http\Controllers\TaskCOntroller@projects');
+// Route::post('projects','App\Http\Controllers\TaskCOntroller@projects');
 
 Route::get('/home', 'App\Http\Controllers\SidebarController@home_index')->name('Home');
 Route::get('/activity', 'App\Http\Controllers\SidebarController@activity_index')->name('Activity');
 Route::get('/discussion', 'App\Http\Controllers\SidebarController@discussion_index')->name('Discussion');
 Route::get('/calender', 'App\Http\Controllers\SidebarController@calender_index')->name('Calender');
-Route::get('/project', 'App\Http\Controllers\SidebarController@project_index')->name('Project');
+// Route::get('/project', 'App\Http\Controllers\SidebarController@project_index')->name('Project');
 Route::get('/team-members', 'App\Http\Controllers\SidebarController@member_index')->name('Member');
 Route::get('/tasks', [TaskCOntroller::class, 'store']);
+Route::get('/project', [ProjectController::class, 'store']);
 
 Route::get('/setting', 'App\Http\Controllers\SidebarController@setting_index')->name('Setting');
 Route::get('/profile', 'App\Http\Controllers\SidebarController@profile_index')->name('Profile');
