@@ -52,6 +52,11 @@ Route::get('/chat', 'App\Http\Controllers\PusherController@index');
 Route::post('/broadcast', 'App\Http\Controllers\PusherController@broadcast');
 Route::post('/receive', 'App\Http\Controllers\PusherController@receive');
 
-// routes/web.php
-Route::get('/feed', 'App\Http\Controllers\PostController@index')->name('feed.index');
-Route::post('/post', 'App\Http\Controllers\PostController@store')->name('feed.store');
+use App\Http\Controllers\FeedController;
+
+Route::get('/feed', [FeedController::class, 'showFeed'])->name('feed.show');
+Route::post('/feed', [FeedController::class, 'postContent'])->name('feed.postContent');
+Route::post('/feed/{feedItem}/comment', [FeedController::class, 'postComment'])->name('feed.postComment');
+
+
+// Route::get('home', [App\Http\Controllers\DashboardController::class, 'index']);

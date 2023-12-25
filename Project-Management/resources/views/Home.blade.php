@@ -11,6 +11,9 @@
   <link rel="stylesheet" href="{{asset('https://fonts.googleapis.com/css?family=Montserrat&display=swap')}}">
   
 
+  @if(session('message'))
+    <h6 class="alert alert-success">{{session('message')}}</h6>
+  @endif 
   <div class="grey-bg container-fluid">
     <section id="minimal-statistics">
       <div class="row">
@@ -26,7 +29,7 @@
               <div class="card-body">
                 <div class="media d-flex">
                   <div class="media-body text-left">
-                    <h3 class="danger">278</h3>
+                    <h3 class="danger">{{ $ActiveProject }}</h3>
                     <span>Active Projects</span>
                   </div>
                   <div class="align-self-center">
@@ -45,7 +48,8 @@
               <div class="card-body">
                 <div class="media d-flex">
                   <div class="media-body text-left">
-                    <h3 class="success">64</h3>
+                    <h3 class="success">{{ $CompletedProject }}</h3>
+                    <a href="{{ url('task')}}" class="text-black">view</a>
                     <span>Completed Projects</span>
                   </div>
                   <div class="align-self-center">
@@ -78,7 +82,7 @@
                       class="icon-pencil primary font-large-2 float-left"></i>
                   </div>
                   <div class="media-body text-right">
-                    <h3>278</h3>
+                    <h3>{{ $PendingTask }}</h3>
                     <span>Pending Tasks</span>
                   </div>
                 </div>
@@ -93,7 +97,7 @@
               <div class="card-body">
                 <div class="media d-flex">
                   <div class="media-body text-left">
-                    <h3 class="primary">278</h3>
+                    <h3 class="primary">{{ $Overdue }}</h3>
                     <span>Overdue Tasks</span>
                   </div>
                   <div class="align-self-center">
@@ -122,7 +126,7 @@
               <div class="card-body">
                 <div class="media d-flex">
                   <div class="media-body text-left">
-                    <h3 class="primary">423</h3>
+                    <h3 class="primary">{{ $UrgentTask }}</h3>
                     <span>Urgent Tasks</span>
                   </div>
                   <div class="align-self-center">
@@ -145,8 +149,27 @@
                       class="icon-speech warning font-large-2 float-left"></i>
                   </div>
                   <div class="media-body text-right">
-                    <h3>156</h3>
-                    <span>New Comments</span>
+                    <h3>{{ $totalProject }}</h3>
+                    <span>Total Project</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-sm-6 col-12">
+          <div class="card">
+            <div class="card-content">
+              <div class="card-body">
+                <div class="media d-flex">
+                  <div class="align-self-center">
+                    <i
+                      class="icon-speech warning font-large-2 float-left"></i>
+                  </div>
+                  <div class="media-body text-right">
+                    <h3>{{ $totalTask }}</h3>
+                    <span>Total Task</span>
                   </div>
                 </div>
               </div>

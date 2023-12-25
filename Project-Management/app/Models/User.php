@@ -59,15 +59,8 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function posts()
-{
-    return $this->hasMany(Post::class);
-}
-
-
-    // Define the relationship with the Comment model
-    public function comments()
+    public function feedItems()
     {
-        return $this->hasMany(Comment::class);
+        return $this->hasMany(FeedItem::class);
     }
 }

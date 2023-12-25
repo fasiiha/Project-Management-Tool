@@ -1,23 +1,23 @@
 <?php
-// app/Models/Comment.php
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+// app/Models/Comment.php
 class Comment extends Model
 {
     protected $fillable = ['content'];
 
-    // Define the relationship with the User model
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    // Define the relationship with the Post model
-    public function post()
+    public function feedItem()
     {
-        return $this->belongsTo(Post::class);
+        return $this->belongsTo(FeedItem::class);
     }
 }
+
