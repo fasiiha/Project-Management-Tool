@@ -90,5 +90,4 @@ Route::post('/projects-details', 'App\Http\Controllers\ProjectController@details
 // Route::delete('/delete', [SidebarController::class, 'delete'])->name('user.delete');
 
 
-
-
+Route::get('/students/{terms}','App\Http\Controllers\SearchController@showAllUser');

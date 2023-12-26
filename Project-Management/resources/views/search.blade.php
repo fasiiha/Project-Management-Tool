@@ -8,6 +8,7 @@
             <label for="query" style="color:aliceblue">Search: </label>
             <input type="text" name="query" id="query">
             <button type="submit">Search</button>
+            <p id='userList'></p>
         </form>
     </div>
 
@@ -48,4 +49,36 @@
             <p>No results found.</p>
         @endif
     </div>
+
+
+
+    <script>
+        function suggest() {
+            var term = document.getElementById('query').value;
+            const endpoint = '/user/' + term;
+            const userList = document.getElementById('userList');
+            userList.innerHTML = "";
+
+            console.log(endpoint);
+            fetch(endpoint)
+                .then(response => {
+                    if (response.ok) {
+                        throw new Error("HTTP ERROR ${response.status}");
+                    }
+                    return response.json();
+                })
+
+                .then(data => {
+                    data,
+                    forEach(user => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = user.name;
+                        userList.appendChild(listItem);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error', error);
+                });
+            }
+    </script>
 @endsection

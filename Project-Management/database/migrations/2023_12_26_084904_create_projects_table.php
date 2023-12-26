@@ -16,13 +16,14 @@ class CreateProjectsTable extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('project_name');
-            $table->text('project_owner');
-            $table->text('members');
+            $table->string('admin_username');
+            $table->integer('members');
             $table->date('start_date');
             $table->date('due_date');
             $table->text('description');
-            $table->text('attachments')->nullable();
+            $table->json('attachments')->nullable();
             $table->enum('status', ['Active', 'Completed', 'Delayed', 'Rejected'])->default('Active');
+            $table->enum('category', ['Software Development', 'System Administration', 'Cybersecurity', 'IT Infrastructure', 'IT Support', 'Data Warehousing', 'Software Testing', 'IT Consulting', 'Artificial Intelligence', 'Blockchain'])->default('Software Development');
             $table->timestamps();
         });
     }

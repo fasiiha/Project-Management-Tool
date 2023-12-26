@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Task;
 use App\Models\Project;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
+
 
 class SearchController extends Controller
 {
@@ -36,5 +38,10 @@ class SearchController extends Controller
         // }
         // $search = Task::all();
         // return view('tasks', ['search' => $search]);
+    }
+
+    public function showAllUser($term){
+        $users = DB::table('projects')->where('project_name', 'like', "$term%")->get();
+        return($users);
     }
 }
