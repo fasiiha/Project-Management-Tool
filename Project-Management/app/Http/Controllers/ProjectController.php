@@ -14,15 +14,14 @@ class ProjectController extends Controller
         if ($request->isMethod('post')) {
             $project = new Project;
             $project->project_name = $request->input('project_name');
-            $project->project_owner = $request->session()->put("username",$name);
-            $project->description = $request->input('description');
-            $project->members = $request->input('members');
-            $project->status = $request->input('status');
-            $project->attachments = $request->input('attachments');
+            $project->admin_username = $request->session()->get("username");
             $project->start_date = now();
             $project->due_date = $request->input('due_date');
+            $project->description = $request->input('description');
+            $project->attachments = $request->input('attachments');
+            $project->status = $request->input('status');
+            $project->category = $request->input('category');
             $project->save();
-
             return redirect()->route('home');
         }
         $projects = Project::all();
