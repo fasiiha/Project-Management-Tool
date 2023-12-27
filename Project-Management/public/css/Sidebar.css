@@ -16,7 +16,7 @@
   display: flex-column;
   /* margin: -.5%; */
   overflow-y: auto;
-  background: rgba(16,19,34,255);
+  background: #3b3e4f;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
@@ -25,7 +25,7 @@
 }
 
 #sidebar header {
-  background-color: rgba(16,19,34,255);
+  background-color: #3b3e4f;
   font-size: 20px;
   line-height: 52px;
   text-align: center;
