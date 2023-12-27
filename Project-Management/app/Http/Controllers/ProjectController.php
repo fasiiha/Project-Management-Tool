@@ -19,7 +19,7 @@ class ProjectController extends Controller
             $project->members = $request->input('members');
             $project->status = $request->input('status');
             $project->attachments = $request->input('attachments');
-            $project->start_date = $request->input('start_date');
+            $project->start_date = now();
             $project->due_date = $request->input('due_date');
             $project->save();
 

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    
+
     public function scopeActiveProject($query)
     {
         return $query->where('status', 'active')->count();
@@ -21,5 +21,10 @@ class Project extends Model
     public function scopeTotalProject($query)
     {
         return $query->count();
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
     }
 }

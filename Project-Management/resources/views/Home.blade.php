@@ -26,8 +26,26 @@
                     <p>Summary</p>
                 </div>
             </div>
-            
+
             <div class="row">
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-body">
+                                <div class="media d-flex">
+                                    <div class="align-self-center">
+                                        <i class="icon-speech warning font-large-2 float-left"></i>
+                                    </div>
+                                    <div class="media-body text-right">
+                                        <h3>{{ $totalProjects }}</h3>
+                                        <span>Total Project</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-xl-3 col-sm-6 col-12">
                     <div class="card">
                         <div class="card-content">
@@ -60,21 +78,46 @@
                                         <i class="icon-cup success font-large-2 float-right"></i>
                                     </div>
                                 </div>
-                                <!-- <div class="progress mt-1 mb-0" style="height: 7px">
-                          <div
-                            class="progress-bar bg-success"
-                            role="progressbar"
-                            style="width: 60%"
-                            aria-valuenow="60"
-                            aria-valuemin="0"
-                            aria-valuemax="100"
-                          ></div>
-                        </div> -->
                             </div>
                         </div>
                     </div>
                 </div>
-
+            </div>
+            <div class="row">
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-body">
+                                <div class="media d-flex">
+                                    <div class="align-self-center">
+                                        <i class="icon-speech warning font-large-2 float-left"></i>
+                                    </div>
+                                    <div class="media-body text-right">
+                                        <h3>{{ $totalTasks }}</h3>
+                                        <span>Total Task</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-body">
+                                <div class="media d-flex">
+                                    <div class="media-body text-left">
+                                        <h3 class="primary">{{ $urgentTasks }}</h3>
+                                        <span>Urgent Tasks</span>
+                                    </div>
+                                    <div class="align-self-center">
+                                        <i class="icon-support primary font-large-2 float-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-xl-3 col-sm-6 col-12">
                     <div class="card">
                         <div class="card-content">
@@ -104,70 +147,6 @@
                                     </div>
                                     <div class="align-self-center">
                                         <i class="icon-book-open primary font-large-2 float-right"></i>
-                                    </div>
-                                </div>
-                                <!-- <div class="progress mt-1 mb-0" style="height: 7px">
-                          <div
-                            class="progress-bar bg-primary"
-                            role="progressbar"
-                            style="width: 80%"
-                            aria-valuenow="80"
-                            aria-valuemin="0"
-                            aria-valuemax="100"
-                          ></div>
-                        </div> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xl-3 col-sm-6 col-12">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="card-body">
-                                <div class="media d-flex">
-                                    <div class="media-body text-left">
-                                        <h3 class="primary">{{ $urgentTasks }}</h3>
-                                        <span>Urgent Tasks</span>
-                                    </div>
-                                    <div class="align-self-center">
-                                        <i class="icon-support primary font-large-2 float-right"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xl-3 col-sm-6 col-12">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="card-body">
-                                <div class="media d-flex">
-                                    <div class="align-self-center">
-                                        <i class="icon-speech warning font-large-2 float-left"></i>
-                                    </div>
-                                    <div class="media-body text-right">
-                                        <h3>{{ $totalProjects }}</h3>
-                                        <span>Total Project</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-xl-3 col-sm-6 col-12">
-                    <div class="card">
-                        <div class="card-content">
-                            <div class="card-body">
-                                <div class="media d-flex">
-                                    <div class="align-self-center">
-                                        <i class="icon-speech warning font-large-2 float-left"></i>
-                                    </div>
-                                    <div class="media-body text-right">
-                                        <h3>{{ $totalTasks }}</h3>
-                                        <span>Total Task</span>
                                     </div>
                                 </div>
                             </div>
@@ -207,12 +186,13 @@
                                                     Description: {{ $projects->description }}
                                                 </p>
                                             </ol>
-                                            
+
                                             <form action="{{ route('projects.details') }}" method="POST">
                                                 @csrf
                                                 <input type="hidden" name="project_id" value="{{ $projects->id }}">
                                                 <div>
-                                                    <input type="submit" class="btn" value="Details" name='details' style="font-size: 80%; margin-bottom: 5%;">
+                                                    <input type="submit" class="btn" value="Details" name='details'
+                                                        style="font-size: 80%; margin-bottom: 5%;">
                                                 </div>
                                             </form>
                                         </div>
@@ -235,8 +215,8 @@
                         <div class="col-lg-4">
                             <div class="card card-margin">
                                 <!-- <div class="card-header no-border">
-                        <h5 class="card-title">Project 1</h5>
-                      </div> -->
+                            <h5 class="card-title">Project 1</h5>
+                          </div> -->
                                 <div class="card-body pt-1">
                                     <div class="widget-49">
                                         <div class="widget-49-title-wrapper">
@@ -252,7 +232,7 @@
                                         </div>
                                         <ol class="widget-49-meeting-points">
                                             <li class="widget-49-meeting-item">
-                                                <span>{{ $task->name }}</span>
+                                                <span>{{ $task->task_name }}</span>
                                             </li>
                                         </ol>
                                         <div class="widget-49-meeting-action">

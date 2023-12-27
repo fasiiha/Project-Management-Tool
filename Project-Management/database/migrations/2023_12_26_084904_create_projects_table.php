@@ -17,7 +17,7 @@ class CreateProjectsTable extends Migration
             $table->id();
             $table->string('project_name');
             $table->string('admin_username');
-            $table->integer('members');
+    
             $table->date('start_date');
             $table->date('due_date');
             $table->text('description');
