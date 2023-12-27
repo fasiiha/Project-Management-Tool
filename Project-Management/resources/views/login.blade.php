@@ -1,4 +1,3 @@
-
 @extends('layouts.loginlayout')
 @section('content')
 

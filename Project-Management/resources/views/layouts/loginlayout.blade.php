@@ -19,7 +19,6 @@
     </header>
 
     <main>
-
         <div class="cont">
             @yield('content')
         </div>
