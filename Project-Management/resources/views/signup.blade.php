@@ -67,14 +67,15 @@
                 </div>
                 <div class="form sign-up" style="display: flex; flex-direction: column; align-items: center;">
                     <h2>Login</h2>
-                    <form onsubmit="return validate()" action="Home.php" method="post">
+                    <form onsubmit="return validate()" action="login" method="post">
+                    @csrf
                         <label>
                             <span>Email</span>
-                            <input type="email" name="email" >
+                            <input type="email" name="email" required >
                         </label>
                         <label>
                             <span>Password</span>
-                            <input type="password" name="pass">
+                            <input type="password" name="pass" required>
                         </label>
                         <p id="email">Enter a valid address, e.g. me@mydomain.com</p>
                         <button type="submit" class="offset-lg-3 offset-md-3 offset-sm-3">Sign In</button>
