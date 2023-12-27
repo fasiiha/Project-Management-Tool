@@ -94,7 +94,7 @@
                                 <div class="media d-flex">
                                     <div class="media-body text-left">
                                         <h3 class="danger">Members</h3>
-                                        <span>{{ $projectDetails->members }}</span>
+                                        {{-- <span>{{ $projectDetails->members }}</span> --}}
                                     </div>
                                     <div class="align-self-center">
                                         <i class="icon-rocket danger font-large-2 float-right"></i>
