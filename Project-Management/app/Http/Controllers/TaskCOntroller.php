@@ -41,32 +41,38 @@ class TaskCOntroller extends Controller
     }
 
     public function signup(Request $request)
-    {
-        $user = new User;
-        $email = $request->input('email2');
+{
+    $request->validate([
+        'name' => 'required',
+        'email2' => 'required|email|unique:users,email',
+        'password' => 'required',
+    ]);
 
-        $result = DB::select("SELECT username FROM user WHERE email = '$email'");
-        if (!empty($result)) {
-            echo '<script>alert("User already exists")</script>';
-            return view("login");
-        }
+    $user = new User;
+    $email = $request->input('email2');
 
-        $user->username = $request->input('name');
-        $user->email = $request->input('email2');
-        $user->email_verified_at = now();
-        $user->password = $request->input('password');
-        $user->phone_number = $request->input('phone');
-        $user->birthdate = $request->input('date');
-        $user->address = $request->input('address');
-        $user->linkedin = "ndjknd";
-        $user->github = "ndjknd";
-        $user->expertise = "ndjknd";
-
-        $user->save();
-
-        $request->session()->put("username", $request->input('name'));
-        return view('UserProfile', ['user' => $user]);
+    $existingUser = User::where('email', $email)->first();
+    if ($existingUser) {
+        return redirect()->route('login')->with('error', 'User already exists');
     }
+
+    $user->username = $request->input('name');
+    $user->email = $request->input('email2');
+    $user->email_verified_at = now();
+    $user->password = bcrypt($request->input('password'));
+    $user->phone_number = $request->input('phone');
+    $user->birthdate = $request->input('date');
+    $user->address = $request->input('address');
+    $user->linkedin = "ndjknd";
+    $user->github = "ndjknd";
+    $user->expertise = "ndjknd";
+
+    $user->save();
+    dd($user);
+
+    return view('UserProfile', ['user' => $user]);
+}
+
 
     public function store(Request $request)
     {
