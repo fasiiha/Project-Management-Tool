@@ -25,7 +25,6 @@ class CreateUserTable extends Migration
             $table->string('linkedin')->nullable();
             $table->string('github')->nullable();
             $table->string('expertise')->nullable();
-            $table->rememberToken();
             $table->timestamps();
         });
     }

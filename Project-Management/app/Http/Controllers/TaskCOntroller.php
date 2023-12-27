@@ -53,14 +53,19 @@ class TaskCOntroller extends Controller
 
         $user->username = $request->input('name');
         $user->email = $request->input('email2');
+        $user->email_verified_at = now();
         $user->password = $request->input('password');
         $user->phone_number = $request->input('phone');
         $user->birthdate = $request->input('date');
         $user->address = $request->input('address');
+        $user->linkedin = "ndjknd";
+        $user->github = "ndjknd";
+        $user->expertise = "ndjknd";
+
         $user->save();
 
         $request->session()->put("username", $request->input('name'));
-        return redirect('home');
+        return view('UserProfile', ['user' => $user]);
     }
 
     public function store(Request $request)
