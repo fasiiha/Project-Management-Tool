@@ -7,8 +7,11 @@
             @csrf
             <label for="query" style="color:aliceblue">Search: </label>
             <input type="text" name="query" id="query">
+            {{-- <button >Search</button> --}}
             <button type="submit">Search</button>
-            <p id='userList'></p>
+
+            {{-- <ul id="output" class="text-white">mkk</ul> --}}
+
         </form>
     </div>
 
@@ -52,33 +55,29 @@
 
 
 
-    <script>
+    {{-- <script>
         function suggest() {
-            var term = document.getElementById('query').value;
-            const endpoint = '/user/' + term;
-            const userList = document.getElementById('userList');
+            var term = document.getElementById("query").value;
+            const endpoint = "/search/" + term;
+            const userList = document.getElementById("output");
             userList.innerHTML = "";
-
-            console.log(endpoint);
             fetch(endpoint)
                 .then(response => {
-                    if (response.ok) {
-                        throw new Error("HTTP ERROR ${response.status}");
+                    if (!response.ok) {
+                        throw new Error(`HTTP error!Status: ${response.status}`);
                     }
                     return response.json();
                 })
-
                 .then(data => {
-                    data,
-                    forEach(user => {
+                    data.forEach(user => {
                         const listItem = document.createElement('li');
-                        listItem.textContent = user.name;
+                        listItem.textContent = user.project_name;
                         userList.appendChild(listItem);
                     });
                 })
                 .catch(error => {
-                    console.error('Error', error);
+                    console.error('Error: ', error);
                 });
-            }
-    </script>
+        }
+    </script> --}}
 @endsection

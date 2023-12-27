@@ -73,6 +73,8 @@ Route::get('home', [App\Http\Controllers\DashboardController::class, 'index'])->
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SidebarController;
 
+
+
 // Route::get('/search', [SearchController::class, 'index'])->name('search');
 Route::get('/search', [SearchController::class, 'search']);
 Route::post('/searchresult', [SearchController::class, 'search']);
@@ -89,5 +91,4 @@ Route::post('/projects-details', 'App\Http\Controllers\ProjectController@details
 // Route::get('/delete', [SidebarController::class, 'delete_index'])->name('delete.index');
 // Route::delete('/delete', [SidebarController::class, 'delete'])->name('user.delete');
 
-
-Route::get('/students/{terms}','App\Http\Controllers\SearchController@showAllUser');
+Route::get('/search/{term}', 'App\Http\Controllers\SearchController@search_suggest');

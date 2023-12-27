@@ -40,8 +40,11 @@ class SearchController extends Controller
         // return view('tasks', ['search' => $search]);
     }
 
-    public function showAllUser($term){
-        $users = DB::table('projects')->where('project_name', 'like', "$term%")->get();
-        return($users);
+    public function search_suggest($term){
+
+        //  $user = DB::table('tasks')->where('task_name', 'like', $term . '%')->get();
+        $user = DB::select("SELECT * FROM tasks WHERE task_name LIKE ?", ["$term%"]);
+        // dd($user);
+        return ($user);
     }
 }

@@ -32,18 +32,26 @@
                                                 <label class="custom-control-label" for="customCheck01"></label>
                                             </div>
                                             <div>
-                                                <h5 class="mb-2">{{ $task->name }}</h5>
-                                                <p>Status: {{ $task->status }} <br>Description: {{ $task->description }}<br>Due Date: {{ $task->due_date }}</p>
+                                                <h5 class="mb-2">{{ $task->task_name }}</h5>
+                                                Project Name:
+                                                @php
+                                                    $project = \App\Models\Project::find($task->project_id);
+                                                    echo $project ? $project->project_name : 'N/A';
+                                                @endphp
+                                                <p>Status: {{ $task->status }} <br>Description:
+                                                    {{ $task->description }}<br>Due Date: {{ $task->due_date }}</p>
                                             </div>
                                         </div>
-                                        <div class="media align-items-center mt-md-0 mt-3">
-                                            <a href="#" data-target="#collapseEdit" data-toggle="modal"
-                                                class="btn bg-secondary-light mr-3">Design</a>
-                                        </div>
+                                        {{-- <div class="media align-items-center mt-md-0 mt-3"> --}}
+
+                                        {{-- </div> --}}
                                         <form method="post" action="{{ route('tasks.delete', ['id' => $task->id]) }}">
                                             @csrf
                                             @method('DELETE')
-                                            <input type="submit" class="btn" value="Delete" name="delete" style="font-size: 80%; margin-bottom: 5%;">
+                                            <a href="#" data-target="#collapseEdit" data-toggle="modal" class="btn"
+                                                style="font-size: 80%; margin-bottom: 5%;">Design</a>
+                                            <input type="submit" class="btn" value="Delete" name="delete"
+                                                style="font-size: 80%; margin-bottom: 5%;">
                                         </form>
                                     </div>
                                 </div>
@@ -68,35 +76,28 @@
                     <form action="/create" method="POST">
                         @csrf
                         <div class="row">
-                            <div class="col-lg-6">
+                            <div class="col-lg-12">
                                 <div class="form-group mb-3">
-                                    <label for="exampleInputText01" class="h5">Task Name</label>
-                                    <input name="name" type="text" class="form-control" id="exampleInputText01"
+                                    <input name="task_name" type="text" class="form-control" id="exampleInputText01"
                                         placeholder="Task Name">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group mb-3">
-                                    <label for="exampleInputText01" class="h5">Project Name</label>
-                                    <input name="project_name" type="text" class="form-control" id="exampleInputText01"
-                                        placeholder="Project Name">
+                                    <input name="project_id" type="number" class="form-control" id="exampleInputText01"
+                                        placeholder="Project ID">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group mb-3">
-                                    <label for="exampleInputText2" class="h5">Categories *</label>
-                                    <select name="type" class=" form-control" data-style="py-0">
-                                        <option>Category</option>
-                                        <option>Android</option>
-                                        <option>IOS</option>
-                                        <option>UI/UX Design</option>
-                                        <option>Development</option>
-                                    </select>
+
+                                    <input name="member_name" type="string" class="form-control" id="exampleInputText01"
+                                        placeholder="Assigned to">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group mb-3">
-                                    <label for="exampleInputText2" class="h5">Status *</label>
+
                                     <select name="status" class=" form-control" data-style="py-0">
                                         <option>pending</option>
                                         <option>completed</option>
@@ -105,16 +106,16 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-lg-12">
+                            <div class="col-lg-6">
                                 <div class="form-group mb-3">
-                                    <label for="exampleInputText004" class="h5">Due Dates*</label>
+
                                     <input name="due_date" type="date" class="form-control" id="exampleInputText004"
                                         value="">
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group mb-3">
-                                    <label for="exampleInputText07" class="h5">Assign Members*</label>
+
                                     <input name="description" type="text" class="form-control" id="exampleInputText07"
                                         placeholder="Description">
                                 </div>

@@ -16,7 +16,8 @@ class CreateTasksTable extends Migration
     Schema::create('tasks', function (Blueprint $table) {
         $table->id();
         $table->foreignId('project_id')->constrained();
-        $table->string('name');
+        $table->string('member_name')->constrained();
+        $table->string('task_name');
         $table->text('description')->nullable();
         $table->enum('status', ['pending', 'completed', 'urgent'])->default('pending');
         $table->date('due_date')->nullable();

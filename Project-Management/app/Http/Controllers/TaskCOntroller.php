@@ -64,13 +64,12 @@ class TaskCOntroller extends Controller
     {
         if ($request->isMethod('post')) {
             $task = new Task;
-            $task->name = $request->input('name');
+            $task->project_id = 1;  // $request->input('project_id');
+            $task->task_name = $request->input('task_name');
+            $task->member_name = $request->input('member_name');
             $task->description = $request->input('description');
-            $task->project_id = 1;
-            // $request->input('project_id');
             $task->status = $request->input('status');
             $task->due_date = $request->input('due_date');
-            // $task->time = $request->input('time');
             $task->save();
             return redirect()->route('home');
         }
