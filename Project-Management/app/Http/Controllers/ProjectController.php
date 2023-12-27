@@ -14,7 +14,7 @@ class ProjectController extends Controller
         if ($request->isMethod('post')) {
             $project = new Project;
             $project->project_name = $request->input('project_name');
-            $project->project_owner = "nkdjkdn";
+            $project->project_owner = $request->session()->put("username",$name);
             $project->description = $request->input('description');
             $project->members = $request->input('members');
             $project->status = $request->input('status');
