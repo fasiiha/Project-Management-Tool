@@ -22,9 +22,12 @@
         <section id="minimal-statistics">
             <div class="row">
                 <div class="col-12 mt-3 mb-1">
-                    <h4 class="text-uppercase">Dashboard Overview</h4>
-                    <h4>Hello, {{ session('username') }}</h4>
-                    <p>Summary</p>
+                    <h4 class="text-uppercase text-white">Dashboard Overview</h4>
+                    <h4 class="text-white">Hello, {{ session('username') }}</h4>
+                    
+                </div>
+                <div class="col-12 mt-3 mb-1">
+                    <h4 class="text-uppercase">Summary</h4>
                 </div>
             </div>
 
@@ -164,8 +167,8 @@
                 </div>
             </div>
 
+            <p>Project Overview:</p>
             <div class="container">
-                <p>Project Overview:</p>
                 @if (!empty($projects))
                     <div class="row">
                         @foreach ($projects as $projects)
@@ -210,45 +213,48 @@
 
             <p>Tasks Overview:</p>
 
-            @if (!empty($tasks))
-                <div class="row">
-                    @foreach ($tasks as $task)
-                        <div class="col-lg-4">
-                            <div class="card card-margin">
-                                <!-- <div class="card-header no-border">
-                            <h5 class="card-title">Project 1</h5>
-                          </div> -->
-                                <div class="card-body pt-1">
-                                    <div class="widget-49">
-                                        <div class="widget-49-title-wrapper">
-                                            <div class="widget-49-date-primary">
-                                                <span class="widget-49-date-day">09</span>
-                                                <span class="widget-49-date-month">apr</span>
+            <div class="container">
+
+                @if (!empty($tasks))
+                    <div class="row">
+                        @foreach ($tasks as $task)
+                            <div class="col-lg-4">
+                                <div class="card card-margin">
+                                    <!-- <div class="card-header no-border">
+                                <h5 class="card-title">Project 1</h5>
+                            </div> -->
+                                    <div class="card-body pt-1">
+                                        <div class="widget-49">
+                                            <div class="widget-49-title-wrapper">
+                                                <div class="widget-49-date-primary">
+                                                    <span class="widget-49-date-day">09</span>
+                                                    <span class="widget-49-date-month">apr</span>
+                                                </div>
+                                                <div class="widget-49-meeting-info">
+                                                    <span class="widget-49-pro-title">Project 1</span>
+                                                    <span class="widget-49-meeting-time">{{ $task->due_date }}
+                                                        Hrs</span>
+                                                </div>
                                             </div>
-                                            <div class="widget-49-meeting-info">
-                                                <span class="widget-49-pro-title">Project 1</span>
-                                                <span class="widget-49-meeting-time">{{ $task->due_date }}
-                                                    Hrs</span>
+                                            <ol class="widget-49-meeting-points">
+                                                <li class="widget-49-meeting-item">
+                                                    <span>{{ $task->task_name }}</span>
+                                                </li>
+                                            </ol>
+                                            <div class="widget-49-meeting-action">
+                                                <a href="#" class="btn btn-sm btn-flash-border-primary">View
+                                                    All</a>
                                             </div>
-                                        </div>
-                                        <ol class="widget-49-meeting-points">
-                                            <li class="widget-49-meeting-item">
-                                                <span>{{ $task->task_name }}</span>
-                                            </li>
-                                        </ol>
-                                        <div class="widget-49-meeting-action">
-                                            <a href="#" class="btn btn-sm btn-flash-border-primary">View
-                                                All</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
-                </div>
-            @else
-                <p>No tasks available.</p>
-            @endif
+                        @endforeach
+                    </div>
+                @else
+                    <p>No tasks available.</p>
+                @endif
+            </div>
     </div>
     </section>
     </div>

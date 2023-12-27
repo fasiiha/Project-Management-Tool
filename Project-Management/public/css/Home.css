@@ -1,10 +1,16 @@
 .grey-bg {
-  background-color:  #232733;
+  background-color:   rgba(16,19,34,255);  
 }
 
 body {
-  background:  #232733;
+  background:   rgba(16,19,34,255);  
 }
+
+p {
+  color: #fff;
+  font-weight: lighter;
+}
+
 .order-card {
   color: #fff;
 }
