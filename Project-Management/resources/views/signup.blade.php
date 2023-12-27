@@ -55,14 +55,14 @@
             <div class="sub-cont">
                 <div class="img">
                     <div class="img__text m--up">
-                        <h3>Don't have an account? Please Sign up!<h3>
-                    </div>
-                    <div class="img__text m--in">
                         <h3>If you already have an account, just sign in.<h3>
                     </div>
+                    <div class="img__text m--in">
+                        <h3>Don't have an account? Please Sign up!<h3>
+                    </div>
                     <div class="img__btn">
-                        <span class="m--up">Sign Up</span>
-                        <span class="m--in">Sign In</span>
+                        <span class="m--up">Log In</span>
+                        <span class="m--in">Sign Up</span>
                     </div>
                 </div>
                 <div class="form sign-up" style="display: flex; flex-direction: column; align-items: center;">
