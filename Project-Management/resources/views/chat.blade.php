@@ -27,7 +27,7 @@
 
   <!-- Chat -->
   <div class="messages">
-    @include('receive', ['message' => "Hey! What's up!  👋"])
+    @include('receive', ['message' => "Hey! What's up! 👋"])
   </div>
   <!-- End Chat -->
   <!-- Footer -->
