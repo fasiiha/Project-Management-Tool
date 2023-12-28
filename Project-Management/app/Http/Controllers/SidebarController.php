@@ -41,7 +41,7 @@ class SidebarController extends Controller
     public function profile_index(Request $request){
         $username = $request->session()->get("username");
         $user = DB::select("select * from users where username = '$username'");
-        $projects = DB::select("select * from projects where username = '$username'");
+        $projects = DB::select("select * from projects where admin_username = '$username'");
         return view('UserProfile',['user' => $user[0]],['projects'=>$projects]);
     }
 }
