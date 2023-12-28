@@ -4,10 +4,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FeedController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TaskCOntroller;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SidebarController;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', function () {
-    return view('Home');
-});
+    return view('landingpage');
+}) -> name('page');
 
 Route::post('/create', 'App\Http\Controllers\TaskCOntroller@store');
 Route::post('/pro', 'App\Http\Controllers\ProjectController@store');
@@ -69,29 +73,30 @@ Route::post('/feed', [FeedController::class, 'postContent'])->name('feed.postCon
 Route::post('/feed/{feedItem}/comment', [FeedController::class, 'postComment'])->name('feed.postComment');
 
 
-Route::get('home', [App\Http\Controllers\DashboardController::class, 'index'])->name('home');
+Route::get('home', [DashboardController::class, 'index'])->name('home');
 
 
 
-use App\Http\Controllers\SearchController;
-use App\Http\Controllers\SidebarController;
-
-
-
-// Route::get('/search', [SearchController::class, 'index'])->name('search');
+Route::get('/search', [SearchController::class, 'index'])->name('search');
 Route::get('/search', [SearchController::class, 'search']);
 Route::post('/searchresult', [SearchController::class, 'search']);
 
 Route::delete('/projects/delete/{id}', 'App\Http\Controllers\ProjectController@delete')->name('projects.delete');
 Route::delete('/tasks/delete/{id}', 'App\Http\Controllers\TaskCOntroller@delete')->name('tasks.delete');
-Route::delete('/user/delete/{username}', 'App\Http\Controllers\Controller@delete')->name('users.delete');
+Route::put('/tasks/complete/{id}', 'App\Http\Controllers\TaskCOntroller@task_completed')->name('tasks.completed');
+Route::put('/tasks/urgent/{id}', 'App\Http\Controllers\TaskCOntroller@task_urgent')->name('tasks.urgent');
+
+
+Route::get('/deleteaccount', [DashboardController::class, 'showDeleteForm'])->name('delete_user');
+Route::delete('/user/delete', 'App\Http\Controllers\DashboardController@delete_u')->name('users.delete');
 
 
 Route::get('/delete', 'App\Http\Controllers\SidebarController@delete_index')->name('Delete');
-// Route::get('/delete', [SidebarController::class, 'delete_index']);
 Route::post('/projects-details', 'App\Http\Controllers\ProjectController@details')->name('projects.details');
-
-// Route::get('/delete', [SidebarController::class, 'delete_index'])->name('delete.index');
-// Route::delete('/delete', [SidebarController::class, 'delete'])->name('user.delete');
+Route::post('/projects-update', 'App\Http\Controllers\ProjectController@update')->name('projects.update');
 
 Route::get('/search/{term}', 'App\Http\Controllers\SearchController@search_suggest');
+Route::put('/projects/{id}/mark-as-completed', 'App\Http\Controllers\ProjectController@markAsCompleted')->name('projects.markAsCompleted');
+Route::put('/projects/{id}/mark_as_rejected', 'App\Http\Controllers\ProjectController@markAsRejected')->name('projects.markAsRejected');
+
+// web.php

@@ -7,10 +7,7 @@
             @csrf
             <label for="query" style="color:aliceblue">Search: </label>
             <input type="text" name="query" id="query">
-            {{-- <button >Search</button> --}}
             <button type="submit">Search</button>
-
-            {{-- <ul id="output" class="text-white">mkk</ul> --}}
 
         </form>
     </div>
@@ -29,7 +26,7 @@
         @if ($tasks->count() > 0)
             <h3>Tasks</h3>
             @foreach ($tasks as $task)
-                <p style="margin-left: 5%">id {{ $task->id }}: {{ $task->name }}</p>
+                <p style="margin-left: 5%">id {{ $task->id }}: {{ $task->task_name }}</p>
             @endforeach
         @endif
 
@@ -52,32 +49,4 @@
             <p>No results found.</p>
         @endif
     </div>
-
-
-
-    {{-- <script>
-        function suggest() {
-            var term = document.getElementById("query").value;
-            const endpoint = "/search/" + term;
-            const userList = document.getElementById("output");
-            userList.innerHTML = "";
-            fetch(endpoint)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error!Status: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    data.forEach(user => {
-                        const listItem = document.createElement('li');
-                        listItem.textContent = user.project_name;
-                        userList.appendChild(listItem);
-                    });
-                })
-                .catch(error => {
-                    console.error('Error: ', error);
-                });
-        }
-    </script> --}}
 @endsection

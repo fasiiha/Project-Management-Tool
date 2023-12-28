@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
+    protected $fillable = [
+        'project_name', 'due_date', 'description', 'status', 'category',
+    ];
 
     public function scopeActiveProject($query)
     {
@@ -27,4 +30,12 @@ class Project extends Model
     {
         return $this->belongsToMany(User::class);
     }
+
+    // Project.php
+
+// public function tasks()
+// {
+//     return $this->hasMany(Task::class, 'project_id');
+// }
+
 }

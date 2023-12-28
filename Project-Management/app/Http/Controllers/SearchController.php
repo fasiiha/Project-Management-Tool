@@ -20,7 +20,7 @@ class SearchController extends Controller
     {
         $query = $request->input('query');
         $users = User::where('username', 'like', "%$query%")->get();
-        $tasks = Task::where('name', 'like', "%$query%")->get();
+        $tasks = Task::where('task_name', 'like', "%$query%")->get();
         $projects = Project::where('project_name', 'like', "%$query%")->get();
 
         return view('search', ['users'=>$users, 'tasks'=>$tasks, 'projects'=>$projects]);
@@ -38,13 +38,5 @@ class SearchController extends Controller
         // }
         // $search = Task::all();
         // return view('tasks', ['search' => $search]);
-    }
-
-    public function search_suggest($term){
-
-        //  $user = DB::table('tasks')->where('task_name', 'like', $term . '%')->get();
-        $user = DB::select("SELECT * FROM tasks WHERE task_name LIKE ?", ["$term%"]);
-        // dd($user);
-        return ($user);
     }
 }

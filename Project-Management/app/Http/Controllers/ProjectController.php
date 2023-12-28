@@ -42,4 +42,36 @@ class ProjectController extends Controller
 
         return view('projectdata', ['projectDetails' => $projectDetails]);
     }
+
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'project_name' => 'required',
+            'due_date' => 'required|date',
+            'status' => 'required|in:Active,Completed,Delayed,Rejected',
+        ]);
+
+        $project = Project::findOrFail($id);
+        $project->update([
+            'project_name' => $request->input('project_name'),
+            'due_date' => $request->input('due_date'),
+            'status' => $request->input('status'),
+        ]);
+        return redirect()->back()->with('success', 'Project updated successfully');
+    }
+    
+    public function markAsCompleted($id)
+    {
+        $project = Project::findOrFail($id);
+        $project->update(['status' => 'Completed']);
+        return redirect()->back()->with('success', 'Project marked as Completed');
+    }
+    public function markAsRejected($id)
+    {
+        $project = Project::findOrFail($id);
+        $project->update(['status' => 'Rejected']);
+        return redirect()->back()->with('success', 'Project marked as Rejected');
+    }
+    
 }
