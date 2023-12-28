@@ -26,7 +26,7 @@
             <a href="{{ route('Discussion') }}"><i class="zmdi zmdi-widgets"></i> Discussion </a>
             <a href="{{ route('Calender') }}"> <i class="zmdi zmdi-calendar"></i> Calender </a>
             <a href="projects"> <i class="zmdi zmdi-info-outline"></i> Projects </a>
-            <a href="{{ route('Member') }}"> <i class="zmdi zmdi-info-outline"></i> Team Members </a>
+            {{-- <a href="{{ route('Member') }}"> <i class="zmdi zmdi-info-outline"></i> Team Members </a> --}}
             <a href="tasks"> <i class="zmdi zmdi-settings"></i> Tasks </a>
             {{-- <a href="{{ route('Setting') }}"> <i class="zmdi zmdi-comment-more"></i> Settings </a> --}}
             <a href="{{ route('delete_user') }}"> <i class="zmdi zmdi-comment-more"></i> Delete Account </a>

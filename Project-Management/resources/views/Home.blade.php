@@ -179,13 +179,15 @@
                                             <div class="widget-49-title-wrapper">
                                                 <div class="widget-49-date-primary">
                                                     <!-- <span class="widget-49-date-day">09</span> -->
-                                                    <span class="widget-49-date-month">{{ $projects->status }}</span>
+                                                    <span class="widget-49-date-month">{{ $projects->id }}</span>
                                                 </div>
                                                 <div class="widget-49-meeting-info">
-                                                    <span class="widget-49-pro-title">{{ $projects->id }}:
+                                                    <span class="widget-49-pro-title">
                                                         {{ $projects->project_name }}</span>
-                                                    <span class="widget-49" style="font-size: 10px;">Due Date:
+                                                    <span class="widget-49" style="font-size: 10px;">
                                                         {{ $projects->due_date }}</span>
+                                                    <span class="widget-49" style="font-size: 10px;">
+                                                        {{ $projects->status }}</span>
                                                 </div>
                                             </div>
                                             <ol class="widget-49-meeting-points">
@@ -215,9 +217,7 @@
             </div>
 
             <p>Tasks Overview:</p>
-
-            {{-- <div class="container">
-
+            <div class="container">
                 @if (!empty($tasks))
                     <div class="row">
                         @foreach ($tasks as $task)
@@ -228,23 +228,19 @@
                                             <div class="widget-49-title-wrapper">
                                                 <div class="widget-49-date-primary">
                                                     <span class="widget-49-date-day">{{ $task->id }}</span>
-                                                 
                                                 </div>
                                                 <div class="widget-49-meeting-info">
-                                                    <span class="widget-49-pro-title">{{ $task->projec }}</span>
-                                                    <span class="widget-49-meeting-time">{{ $task->due_date }}
-                                                        Hrs</span>
+                                                    <span class="widget-49-pro-title">{{ $task->task_name }}</span>
+                                                    <span class="widget-49-meeting-time">{{ $task->due_date }} Hrs</span>
+                                                    <span class="widget-49-meeting-time">{{ $task->status }}</span>
+
                                                 </div>
                                             </div>
                                             <ol class="widget-49-meeting-points">
                                                 <li class="widget-49-meeting-item">
-                                                    <span>{{ $task->task_name }}</span>
+                                                    <span>{{ $task->description }}</span>
                                                 </li>
                                             </ol>
-                                            <div class="widget-49-meeting-action">
-                                                <a href="#" class="btn btn-sm btn-flash-border-primary">View
-                                                    All</a>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -254,44 +250,7 @@
                 @else
                     <p>No tasks available.</p>
                 @endif
-            </div> --}}
-
-            <!-- Tasks Overview -->
-<div class="container">
-    @if (!empty($tasks))
-        <div class="row">
-            @foreach ($tasks as $task)
-                <div class="col-lg-4">
-                    <div class="card card-margin">
-                        <div class="card-body pt-1">
-                            <div class="widget-49">
-                                <div class="widget-49-title-wrapper">
-                                    <div class="widget-49-date-primary">
-                                        <span class="widget-49-date-day">{{ $task->id }}</span>
-                                    </div>
-                                    <div class="widget-49-meeting-info">
-                                        <span class="widget-49-pro-title">{{ $task->project_id }}</span>
-                                        <span class="widget-49-meeting-time">{{ $task->due_date }} Hrs</span>
-                                    </div>
-                                </div>
-                                <ol class="widget-49-meeting-points">
-                                    <li class="widget-49-meeting-item">
-                                        <span>{{ $task->task_name }}</span>
-                                    </li>
-                                </ol>
-                                <div class="widget-49-meeting-action">
-                                    <a href="#" class="btn btn-sm btn-flash-border-primary">View All</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-    @else
-        <p>No tasks available.</p>
-    @endif
-</div>
+            </div>
 
     </div>
     </section>
