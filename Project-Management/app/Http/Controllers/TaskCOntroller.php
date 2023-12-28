@@ -70,7 +70,7 @@ class TaskCOntroller extends Controller
     $user->save();
     // dd($user);
 
-    return view('home', ['user' => $user]);
+    return view('UserProfile', ['user' => $user]);
 }
 
 
