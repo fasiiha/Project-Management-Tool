@@ -14,7 +14,7 @@
 
 </head>
 
-<body style="background: #232733;">
+<body class="grey-bg">
     <div id="sidebar">
         <header>
             <a href="#">Project</a>
