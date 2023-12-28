@@ -12,31 +12,39 @@
   <!-- CSS -->
   <link rel="stylesheet" href="{{asset('css/chat.css')}}">
   <!-- End CSS -->
-<div class="chat">
+  <div class="chat" style="background-color: #3b3e4f;">
+    <div class="card" style="background-color: #3b3e4f;">
+        <div class="card-body">
+          <div
+            class="d-flex flex-column "
+          >
+          <div class="top">
+            <div>
+              <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" height="50px" alt="Avatar">
+              <p style="color: white !important;">User</p>
+              <small>Online</small>
+            </div>
+          </div>
+          <div class="messages">
+            @include('receive', ['message' => "Hey! What's up!  👋"])
+          </div>
+          <!-- End Chat -->
+          <!-- Footer -->
+          <div class="bottom">
+            <form>
+              <input type="text" id="message" name="message" placeholder="Enter message..." autocomplete="off">
+              <button type="submit"></button>
+            </form>
+          </div>
+            
+          </div>
+        </div>
+      </div>
 
   <!-- Header -->
-  <div class="top">
-    
-    <div>
-      <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" height="50px" alt="Avatar">
-      <p>User</p>
-      <small>Online</small>
-    </div>
-  </div>
   <!-- End Header -->
 
   <!-- Chat -->
-  <div class="messages">
-    @include('receive', ['message' => "Hey! What's up! 👋"])
-  </div>
-  <!-- End Chat -->
-  <!-- Footer -->
-  <div class="bottom">
-    <form>
-      <input type="text" id="message" name="message" placeholder="Enter message..." autocomplete="off">
-      <button type="submit"></button>
-    </form>
-  </div>
   <!-- End Footer -->
 
 </div>
