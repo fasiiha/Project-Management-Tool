@@ -20,7 +20,7 @@ class TaskCOntroller extends Controller
             return view("login");
         }
 
-        $result = DB::select("SELECT username FROM user WHERE email = '$email' and password = '$pass'");
+        $result = DB::select("SELECT username FROM users WHERE email = '$email' and password = '$pass'");
 
         // Check if there's a result
         if (!empty($result)) {
@@ -36,8 +36,8 @@ class TaskCOntroller extends Controller
         }
 
         $request->session()->put("username", $name);
-        session(['username' => $name]);
-        return redirect("home");
+        // session(['username' => $name]);
+        return redirect("profile");
     }
 
     public function signup(Request $request)
@@ -59,7 +59,7 @@ class TaskCOntroller extends Controller
     $user->username = $request->input('name');
     $user->email = $request->input('email2');
     $user->email_verified_at = now();
-    $user->password = bcrypt($request->input('password'));
+    $user->password = $request->input('password');
     $user->phone_number = $request->input('phone');
     $user->birthdate = $request->input('date');
     $user->address = $request->input('address');
@@ -68,9 +68,9 @@ class TaskCOntroller extends Controller
     $user->expertise = "ndjknd";
 
     $user->save();
-    dd($user);
+    // dd($user);
 
-    return view('UserProfile', ['user' => $user]);
+    return view('home', ['user' => $user]);
 }
 
 
@@ -120,6 +120,25 @@ class TaskCOntroller extends Controller
     public function delete($id)
     {
         DB::table('tasks')->where('id', $id)->delete();
-        return redirect()->route('home')->with('success', 'Project deleted successfully');
+        return redirect()->route('home')->with('success', 'Task deleted successfully');
     }
+    public function task_completed($id)
+    {
+        $tasks = Task::findOrFail($id);
+        $tasks->update(['status' => 'Completed']);
+        return redirect()->back()->with('success', 'Task marked as Completed');
+    }
+    public function task_urgent($id)
+    {
+        $tasks = Task::findOrFail($id);
+        $tasks->update(['status' => 'Urgent']);
+        return redirect()->back()->with('success', 'Task marked as Urgent');
+    }
+
+    public function showTasks($projectId)
+{
+    $project = Project::findOrFail($projectId);
+    $tasks = Task::where('project_id', $projectId)->get();
+    return view('home', ['tasks', 'project']);
+}
 }

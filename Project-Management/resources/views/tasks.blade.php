@@ -53,6 +53,20 @@
                                             <input type="submit" class="btn" value="Delete" name="delete"
                                                 style="font-size: 80%; margin-bottom: 5%;">
                                         </form>
+                                        <form method="post" action="{{ route('tasks.completed', ['id' => $task->id]) }}">
+                                            @csrf
+                                            @method('PUT')
+
+                                            <input type="submit" class="btn" value="Completed" name="mark_as_completed"
+                                                style="font-size: 80%; margin-bottom: 5%;">
+                                        </form>
+                                        <form method="post" action="{{ route('tasks.urgent', ['id' => $task->id]) }}">
+                                            @csrf
+                                            @method('PUT')
+
+                                            <input type="submit" class="btn" value="Urgent" name="mark_as_urgent"
+                                                style="font-size: 80%; margin-bottom: 5%;">
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -102,7 +116,6 @@
                                         <option>pending</option>
                                         <option>completed</option>
                                         <option>urgent</option>
-
                                     </select>
                                 </div>
                             </div>
@@ -116,8 +129,8 @@
                             <div class="col-lg-12">
                                 <div class="form-group mb-3">
 
-                                    <input name="description" type="text" class="form-control" id="exampleInputText07"
-                                        placeholder="Description">
+                                    <input name="description" type="text" class="form-control"
+                                        id="exampleInputText07" placeholder="Description">
                                 </div>
                             </div>
                             <div class="col-lg-12">

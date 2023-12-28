@@ -29,7 +29,7 @@
             <a href="{{ route('Member') }}"> <i class="zmdi zmdi-info-outline"></i> Team Members </a>
             <a href="tasks"> <i class="zmdi zmdi-settings"></i> Tasks </a>
             {{-- <a href="{{ route('Setting') }}"> <i class="zmdi zmdi-comment-more"></i> Settings </a> --}}
-            <a href="delete"> <i class="zmdi zmdi-comment-more"></i> Delete Account </a>
+            <a href="{{ route('delete_user') }}"> <i class="zmdi zmdi-comment-more"></i> Delete Account </a>
             <a href="{{ route('Profile') }}"> <i class="zmdi zmdi-comment-more"></i> Profile </a>
             <a href="logout"> <i class="zmdi zmdi-comment-more"></i> Logout </a>
         </div>

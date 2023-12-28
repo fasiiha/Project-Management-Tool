@@ -35,4 +35,8 @@ class Task extends Model
     {
         return $query->count();
     }
+    public function project()
+    {
+        return $this->belongsTo(Project::class, 'id');
+    }
 }

@@ -5,11 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use App\Models\Task;
 
+use Illuminate\Support\Facades\DB;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function index(Request $request){
+    public function index(Request $request)
+    {
         $activeProjects = Project::activeProject();
         $completedProjects = Project::completedProject();
         $totalProjects = Project::totalProject();
@@ -43,4 +46,26 @@ class DashboardController extends Controller
             'projects' => $projects
         ]);
     }
+
+    public function delete_u(Request $request)
+    {
+        $username = $request->session()->get("username");
+        
+        DB::table('users')->where('username', $username)->delete();
+        return redirect()->route('page')->with('success', 'Project deleted successfully');
+    }
+
+
+    public function showDeleteForm(Request $request)
+    {
+        $username = $request->session()->get("username");
+        $user = User::where('username', $username)->first();
+
+        if (!$user) {
+            return redirect()->route('login')->with('error', 'User not found');
+        }
+
+        return view('deleteacc', ['user' => $user]);
+    }
+
 }

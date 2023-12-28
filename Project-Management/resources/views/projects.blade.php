@@ -13,7 +13,6 @@
                                 <h5>Your Projects</h5>
                             </div>
                             <div class="d-flex flex-wrap align-items-center">
-
                                 <a href="#" class="btn" data-target="#collapseEdit" data-toggle="modal">New
                                     Project</a>
                             </div>
@@ -29,102 +28,96 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="col-sm-8 text-white">
-                                <p class="mb-2"> Project: {{ $project->id }} <br>
+                                <p class="mb-2">Project: {{ $project->id }}</p>
+                                <p style="font-size: 12px; padding-left: 2%;">
                                     Project Name: {{ $project->project_name }} <br>
                                     Description: {{ $project->description }} <br>
                                     {{-- Members: {{ $project->members }} <br> --}}
                                     Status: {{ $project->status }} <br>
-                                    Attachmensts: {{ $project->attachments }} <br>
                                     Start Date: {{ $project->start_date }}<br>
-                                    Due Date: {{ $project->due_date }}</p>
-
-
+                                    Due Date: {{ $project->due_date }}
                                 <div class="d-flex align-items-center">
-
                                     <form action="{{ route('projects.details') }}" method="POST">
                                         @csrf
                                         <input type="hidden" name="project_id" value="{{ $project->id }}">
                                         <div>
-                                            <input type="submit" class="btn" value="Details" name='details' style="font-size: 80%; margin-bottom: 5%;">
+                                            <input type="submit" class="btn" value="Details" name='details'
+                                            style="font-size: 60%;">
                                         </div>
                                     </form>
-                                    
                                     <form method="post" action="{{ route('projects.delete', ['id' => $project->id]) }}">
                                         @csrf
                                         @method('DELETE')
-                                        <input type="submit" class="btn" value="Delete" name="delete" style="font-size: 80%; margin-bottom: 5%;">
+                                        <input type="submit" class="btn" value="Delete" name="delete"
+                                            style="font-size: 60%;">
                                     </form>
-                                    
-
+                                    {{-- <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#editProject{{ $project->id }}">
+                                        Edit
+                                    </button> --}}
+                                    <form method="post" action="{{ route('projects.markAsCompleted', ['id' => $project->id]) }}">
+                                        @csrf
+                                        @method('PUT')
+                                        <input type="submit" class="btn" value="Completed" name="mark_as_completed" style="font-size: 60%;">
+                                    </form>
+                                    <form method="post" action="{{ route('projects.markAsRejected', ['id' => $project->id]) }}">
+                                        @csrf
+                                        @method('PUT')
+                                        <input type="submit" class="btn" value="Reject" name="mark_as_rejected" style="font-size: 60%;">
+                                    </form>
                                 </div>
+                                </p>
 
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                {{-- <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <div class="d-flex align-items-center">
-                                        <div class="ml-3">
-                                            <h5 class="mb-1">Vuetify Dashboard</h5>
-                                            <p class="mb-0">Customize your WordPress with smart WordPress plugins.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 text-sm-right mt-3 mt-sm-0">
-                                    <a class="btn btn-white text-warning link-shadow">Low</a>
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <div class="d-flex align-items-center">
-                                        <div class="ml-3">
-                                            <h5 class="mb-1">Medical Clinic Theme</h5>
-                                            <p class="mb-0">Hospital and private clinic doctor's theme.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 text-sm-right mt-3 mt-sm-0">
-                                    <a class="btn btn-white text-warning link-shadow">Low</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-8">
-                                    <div class="d-flex align-items-center">
-                                        <div class="ml-3">
-                                            <h5 class="mb-1">Social Media Dashboard</h5>
-                                            <p class="mb-0">Leverage data with Social Media Dashboard.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4 text-sm-right mt-3 mt-sm-0">
-                                    <a class="btn btn-white text-success link-shadow">High</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         @endforeach
 
 
+        {{-- <div class="modal fade" id="editProject{{ $project->id }}" tabindex="-1" role="dialog" aria-labelledby="editProjectLabel{{ $project->id }}" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editProjectLabel{{ $project->id }}">Edit Project</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" action="{{ route('projects.update', ['id' => $project->id]) }}">
+                            @csrf
+                            @method('POST')
+        
+                            <div class="form-group">
+                                <label for="project_name">Project Name</label>
+                                <input type="text" class="form-control" id="project_name" name="project_name" value="{{ $project->project_name }}">
+                            </div>
+        
+                            <div class="form-group">
+                                <label for="due_date">Due Date</label>
+                                <input type="date" class="form-control" id="due_date" name="due_date" value="{{ $project->due_date }}">
+                            </div>
+        
+                            <div class="form-group">
+                                <label for="status">Status</label>
+                                <select class="form-control" id="status" name="status">
+                                    <option value="Active" {{ $project->status == 'Active' ? 'selected' : '' }}>Active</option>
+                                    <option value="Completed" {{ $project->status == 'Completed' ? 'selected' : '' }}>Completed</option>
+                                    <option value="Delayed" {{ $project->status == 'Delayed' ? 'selected' : '' }}>Delayed</option>
+                                    <option value="Rejected" {{ $project->status == 'Rejected' ? 'selected' : '' }}>Rejected</option>
+                                </select>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div> --}}
+        
 
         <div class="modal fade bd-example-modal-lg" role="dialog" aria-modal="true" id="collapseEdit">
             <div class="modal-dialog  modal-dialog-centered modal-lg" role="document">
@@ -142,15 +135,8 @@
                                                 placeholder="Enter Project Name">
                                         </div>
                                     </div>
-                                    {{-- <div class="col-lg-12">
-                                        <div class="form-group mb-3 ">
-                                            <label for="exampleInputText2" class="h5">Members</label>
-                                            <input name="members" text" class="form-control bg-white"
-                                                placeholder="Enter Project Name">
-                                        </div>
-                                    </div> --}}
 
-                                    
+
                                     <div class="col-lg-6">
                                         <div class="form-group mb-3">
                                             <label for="exampleInputText004" class="h5">Due Date</label>
@@ -191,48 +177,6 @@
                                                 style="width: 100%; padding-bottom: 15%; ">
                                         </div>
                                     </div>
-                                    {{-- <div class="col-lg-12">
-                                    <h5>Checklist</h5>
-                                    <div class="row justify-content-between">
-
-                                        <div class="custom-control custom-checkbox custom-control-inline mr-0">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck4">
-                                            <label class="custom-control-label mb-1" for="customCheck4">Design
-                                                mobile version</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox custom-control-inline mr-0">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck07">
-                                            <label class="custom-control-label mb-1" for="customCheck07">Use
-                                                images of unsplash.com</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox custom-control-inline mr-0">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck6">
-                                            <label class="custom-control-label" for="customCheck6">Vector
-                                                images of small size.</label>
-                                        </div>
-
-
-                                        <div class="custom-control custom-checkbox custom-control-inline mr-0">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck7">
-                                            <label class="custom-control-label mb-1" for="customCheck7">Design
-                                                mobile version of landing page</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox custom-control-inline mr-0">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck8">
-                                            <label class="custom-control-label mb-1" for="customCheck8">Use
-                                                images of
-                                                unsplash.com</label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox custom-control-inline mr-0">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck9">
-                                            <label class="custom-control-label" for="customCheck9">Vector
-                                                images
-                                                of
-                                                small size..</label>
-                                        </div>
-
-                                    </div>
-                                </div> --}}
 
                                     <div class="card mb-3">
                                         <div class="card-body">
@@ -246,7 +190,6 @@
                                                             media</label>
                                                     </div>
                                                 </div>
-                                                
                                             </div>
                                         </div>
                                     </div>
