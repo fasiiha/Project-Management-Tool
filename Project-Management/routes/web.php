@@ -48,7 +48,7 @@ Route::post('signup','App\Http\Controllers\TaskCOntroller@signup');
 Route::post('complete','App\Http\Controllers\TaskCOntroller@complete');
 // Route::post('projects','App\Http\Controllers\TaskCOntroller@projects');
 
-Route::get('/home', 'App\Http\Controllers\SidebarController@home_index')->name('Home');
+// Route::get('/home', 'App\Http\Controllers\SidebarController@home_index')->name('Home');
 Route::get('/activity', 'App\Http\Controllers\SidebarController@activity_index')->name('Activity');
 Route::get('/discussion', 'App\Http\Controllers\SidebarController@discussion_index')->name('Discussion');
 Route::get('/calender', 'App\Http\Controllers\SidebarController@calender_index')->name('Calender');

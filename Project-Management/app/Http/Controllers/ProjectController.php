@@ -7,7 +7,7 @@ use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class ProjectController extends Controller
+class ProjectController extends Controller 
 {
     public function store(Request $request)
     {
@@ -24,7 +24,9 @@ class ProjectController extends Controller
             $project->save();
             return redirect()->route('home');
         }
-        $projects = Project::all();
+        $username = $request->session()->get("username");
+        $projects = DB::select("SELECT * from projects WHERE admin_username = '$username'");
+        // $projects = Project::all();
         $tasks = Task::all();
         return view('projects', ['projects' => $projects, 'tasks' => $tasks]);
     }

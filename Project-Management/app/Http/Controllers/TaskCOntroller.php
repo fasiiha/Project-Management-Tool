@@ -76,18 +76,20 @@ class TaskCOntroller extends Controller
 
     public function store(Request $request)
     {
+        $username = $request->session()->get("username");
+
         if ($request->isMethod('post')) {
             $task = new Task;
-            $task->project_id = 1;  // $request->input('project_id');
+            $task->project_id = $request->input('project_id');
             $task->task_name = $request->input('task_name');
-            $task->member_name = $request->input('member_name');
+            $task->member_name = $username;
             $task->description = $request->input('description');
             $task->status = $request->input('status');
             $task->due_date = $request->input('due_date');
             $task->save();
             return redirect()->route('home');
         }
-        $tasks = Task::all();
+        $tasks =  DB::select("SELECT * from tasks where member_name = '$username'");
         return view('tasks', ['tasks' => $tasks]);
     }
 

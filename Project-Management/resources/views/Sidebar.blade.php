@@ -16,7 +16,7 @@
         <a href="#">Project</a>
       </header>
       <div class="nav">
-        <a href="{{ route('Home') }}"> <i class="zmdi zmdi-view-dashboard"></i> Home </a>
+        <a href="{{ route('home') }}"> <i class="zmdi zmdi-view-dashboard"></i> Home </a>
         <a href="{{ route('Activity') }}"> <i class="zmdi zmdi-link"></i> Activity </a>
         <a href="{{ route('Discussion') }}"><i class="zmdi zmdi-widgets"></i> Discussion </a>
         <a href="{{ route('Calender') }}"> <i class="zmdi zmdi-calendar"></i> Calender </a>

@@ -40,13 +40,6 @@
           </div>
         </div>
       </div>
-
-  <!-- Header -->
-  <!-- End Header -->
-
-  <!-- Chat -->
-  <!-- End Footer -->
-
 </div>
 </body>
 

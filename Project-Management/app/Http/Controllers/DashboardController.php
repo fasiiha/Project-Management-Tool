@@ -13,27 +13,18 @@ class DashboardController extends Controller
 {
     public function index(Request $request)
     {
-        $activeProjects = Project::activeProject();
-        $completedProjects = Project::completedProject();
-        $totalProjects = Project::totalProject();
-        $pendingTasks = Task::pendingTask();
-        $overdueTasks = Task::overdue();
-        $urgentTasks = Task::urgentTask();
-        $totalTasks = Task::totalTask();
-
-        $task = new Task;
-        $task->name = $request->input('name');
-        $task->description = $request->input('description');
-        $task->project_id = 1;
-        // $request->input('project_id');
-        $task->status = $request->input('status');
-        $task->due_date = $request->input('due_date');
-        // $task->time = $request->input('time');
-        $task->save();
-        $tasks = Task::all();
-        $projects = Project::all();
-
-        // Pass data to the view
+        $username = $request->session()->get("username");
+        $activeProjects = Project::activeProject($username);
+        $completedProjects = Project::completedProject($username);
+        $totalProjects = Project::totalProject($username);
+        $pendingTasks = Task::pendingTask($username);
+        $overdueTasks = Task::overdue($username);
+        $urgentTasks = Task::urgentTask($username);
+        $totalTasks = Task::totalTask($username);
+        
+        $projects = DB::select("SELECT * from projects WHERE admin_username = '$username'");
+        $tasks = DB::select("select * from tasks where member_name = '$username'");
+   
         return view('home', [
             'activeProjects' => $activeProjects,
             'completedProjects' => $completedProjects,
@@ -42,15 +33,15 @@ class DashboardController extends Controller
             'overdueTasks' => $overdueTasks,
             'urgentTasks' => $urgentTasks,
             'totalTasks' => $totalTasks,
+            'projects' => $projects,
             'tasks' => $tasks,
-            'projects' => $projects
         ]);
     }
 
     public function delete_u(Request $request)
     {
         $username = $request->session()->get("username");
-        
+
         DB::table('users')->where('username', $username)->delete();
         return redirect()->route('page')->with('success', 'Project deleted successfully');
     }
@@ -67,5 +58,4 @@ class DashboardController extends Controller
 
         return view('deleteacc', ['user' => $user]);
     }
-
 }

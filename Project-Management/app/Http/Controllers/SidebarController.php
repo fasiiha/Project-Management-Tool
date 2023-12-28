@@ -7,8 +7,11 @@ use Illuminate\Http\Request;
 
 class SidebarController extends Controller
 {
-    public function home_index(){
-        return view('home');
+    public function home_index(Request $request){
+        $username = $request->session()->get("username");
+        $projects = DB::select("SELECT * from projects WHERE admin_username = '$username'");
+        $tasks = DB::select("select * from tasks where member_name = '$username'");
+        return view('home',['tasks' => $tasks],['projects'=>$projects]);
     }
     public function activity_index(){
         return view('activity');

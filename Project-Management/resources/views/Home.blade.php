@@ -75,7 +75,7 @@
                                 <div class="media d-flex">
                                     <div class="media-body text-left">
                                         <h3 class="success">{{ $completedProjects }}</h3>
-                                        <a href="{{ url('task') }}" class="text-black">view</a>
+                                        
                                         <span>Completed Projects</span>
                                     </div>
                                     <div class="align-self-center">
@@ -218,9 +218,9 @@
 
             <p>Tasks Overview:</p>
             <div class="container">
-                @if (!empty($tasks))
+                @if (!empty($task))
                     <div class="row">
-                        @foreach ($tasks as $task)
+                        @foreach ($task as $task)
                             <div class="col-lg-4">
                                 <div class="card card-margin">
                                     <div class="card-body pt-1">

@@ -90,7 +90,7 @@
                     <form action="/create" method="POST">
                         @csrf
                         <div class="row">
-                            <div class="col-lg-12">
+                            <div class="col-lg-6">
                                 <div class="form-group mb-3">
                                     <input name="task_name" type="text" class="form-control" id="exampleInputText01"
                                         placeholder="Task Name">
@@ -102,13 +102,7 @@
                                         placeholder="Project ID">
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="form-group mb-3">
-
-                                    <input name="member_name" type="string" class="form-control" id="exampleInputText01"
-                                        placeholder="Assigned to">
-                                </div>
-                            </div>
+                           
                             <div class="col-lg-6">
                                 <div class="form-group mb-3">
 
