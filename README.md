@@ -1,4 +1,4 @@
-**##Project Name: TaskMaster**
+**Project Name: TaskMaster**
 
 **Description:**
 TaskMaster is a comprehensive task management system developed using PHP Laravel for backend, HTML, CSS, and JavaScript for frontend. This web application aims to streamline task creation, assignment, tracking, and collaboration within teams or individuals. With intuitive design and powerful features, TaskMaster enhances productivity and organization in various work environments.
